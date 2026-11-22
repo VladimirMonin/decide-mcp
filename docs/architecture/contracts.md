@@ -74,12 +74,15 @@ export interface BoxQuestion {
   * пустой словарь `questions`;
   * некорректный `question_id` (разрешены `[a-zA-Z0-9_-]`, длина `1..64`);
   * `choice` с `< 2` или `> 255` опциями;
-  * `score` с `< 2` ступенями или `> 10` ступенями для `jev` (у Jev потолок 10);
+  * `score` с `< 2` ступенями;
+  * `score` выше жёсткого потолка модели `maxScoreLevels` из `MODEL_REGISTRY`: `> 10` у `ms`, `jev` и `luna`, `> 255` у `gemini`;
   * `type: "box"` в текстовом MVP.
 * **Предупреждения (возвращаются в поле `warnings` ответа, не блокируют запуск):**
   * `choice` с `> 50` вариантами — предупреждение о деградации калибровки;
-  * `score` с `> 10` ступенями на `gemini` — рекомендация Google держать `2..10`;
+  * `score` выше рекомендации модели `recommendedScoreLevels` (у всех стартовых моделей 10): `11..255` ступеней у `gemini` проходят с предупреждением, потому что Google рекомендует `2..10`; у `ms`, `jev` и `luna` те же 11 ступеней уже блокируются как ошибка;
   * в `choice` на модели `gemini` присутствует ключ `none_of_the_above` или `none` (и нет `other`) — предупреждение об алфавитной сортировке ключей.
+
+Потолки и рекомендации живут в паспорте модели (`src/core/registry.ts`, `MODEL_REGISTRY`), линтер `src/core/schema.ts` читает их оттуда, а не держит собственные копии.
 
 ---
 
@@ -136,8 +139,8 @@ export interface JsonlSource {
 export interface FromRunSource {
   type: "from_run";
   run_id: string;
-  /** Структурированный фильтр по результатам родительского прогона */
-  where: FilterExpr;
+  /** Необязательный фильтр: без него берутся все элементы прогона */
+  where?: FilterExpr;
   /**
    * Подтянуть по N соседних элементов до и после каждого отобранного
    * (по seq_index). Пересекающиеся окна склеиваются в непрерывный эпизод,
@@ -299,7 +302,7 @@ export interface FilterExpr {
       "provider_model_id": "google/gemini-decision-1",
       "context_window": 262144,
       "max_questions_per_request": 1000,
-      "max_score_levels": 10,
+      "max_score_levels": 255,
       "supports_media": false,
       "recommended_for": "Широкий скрининг до 1000 элементов за 1 вызов, Этап 1 воронки"
     }

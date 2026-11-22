@@ -6,7 +6,17 @@ export interface ModelPassport {
   contextWindow: number;
   maxCompletionTokens: number | null;
   maxQuestionsPerRequest: number;
+  /**
+   * Жёсткий потолок ступеней `score`: выше — ошибка рубрики.
+   * `gemini` по контракту принимает 2..255, у `ms`, `jev` и `luna` потолок 10.
+   */
   maxScoreLevels: number;
+  /**
+   * Рекомендуемый потолок ступеней: выше него линтер выдаёт предупреждение,
+   * но запуск не блокирует. У `gemini` рекомендация Google ниже жёсткого
+   * потолка (2..10), у остальных стартовых моделей оба значения совпадают.
+   */
+  recommendedScoreLevels: number;
   supportsMedia: false;
   recommendedFor: string;
   /**
@@ -26,7 +36,8 @@ export const MODEL_REGISTRY: Record<ModelAlias, ModelPassport> = {
     contextWindow: 262_144,
     maxCompletionTokens: 235_929,
     maxQuestionsPerRequest: 1_000,
-    maxScoreLevels: 10,
+    maxScoreLevels: 255,
+    recommendedScoreLevels: 10,
     supportsMedia: false,
     recommendedFor:
       "Широкий скрининг до 1000 элементов за один вызов, первый этап воронки",
@@ -42,6 +53,7 @@ export const MODEL_REGISTRY: Record<ModelAlias, ModelPassport> = {
     maxCompletionTokens: 29_491,
     maxQuestionsPerRequest: 150,
     maxScoreLevels: 10,
+    recommendedScoreLevels: 10,
     supportsMedia: false,
     recommendedFor:
       "Короткие шаги, выбор инструмента (When2Call); мягкий лимит ~150 вопросов",
@@ -57,6 +69,7 @@ export const MODEL_REGISTRY: Record<ModelAlias, ModelPassport> = {
     maxCompletionTokens: null,
     maxQuestionsPerRequest: 256,
     maxScoreLevels: 10,
+    recommendedScoreLevels: 10,
     supportsMedia: false,
     recommendedFor:
       "Базовая модель для кода и текстов, лучшая калибровка вероятностей",
@@ -72,6 +85,7 @@ export const MODEL_REGISTRY: Record<ModelAlias, ModelPassport> = {
     maxCompletionTokens: 945_000,
     maxQuestionsPerRequest: 400,
     maxScoreLevels: 10,
+    recommendedScoreLevels: 10,
     supportsMedia: false,
     recommendedFor: "Длинные истории диалогов и крупные модули",
     limitsSource: "catalog-2026-11-22",
