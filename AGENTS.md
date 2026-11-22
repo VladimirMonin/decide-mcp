@@ -29,6 +29,8 @@
 
 - До добавления или изменения события, метрики, обработчика ошибок, DEV- или support-вывода — [логирование](docs/instructions/logging.md) и [политика наблюдаемости](docs/foundation/observability-policy.md).
 - До создания или изменения теста, fixture, runner-а либо выбора проверки — [тестирование](docs/instructions/testing.md) и [стратегия тестирования](docs/foundation/testing-strategy.md).
+- Перед подготовкой коммита или разбиением на коммиты — [коммиты](docs/instructions/git.md).
+- Перед новым документом в docs/ или правкой правила — [правка инструкций](docs/instructions/instruction-authoring.md).
 - **stdout MCP-сервера зарезервирован под протокол.** Диагностика идёт в stderr или файловый приёмник; `console.log` в `src/servers/` и в коде, который он импортирует, запрещён.
 
 ## Платные запросы
