@@ -1,0 +1,188 @@
+{
+  "source": "https://polza.ai/api/v1/models/catalog?limit=100",
+  "pages": 4,
+  "total": 394,
+  "decisionModels": 4,
+  "data": [
+    {
+      "id": "google/gemini-decision-1",
+      "object": "model",
+      "owned_by": "polza-ai",
+      "name": "Google: Gemini Decision 1",
+      "type": "classification",
+      "short_description": "Decision-модель Google: ответы на вопросы да/нет, выбор и оценку с вероятностями через /v1/systemone.",
+      "icon_provider_slug": "google",
+      "is_fz152_compliant": false,
+      "stores_data_in_russia": false,
+      "created": 1794557185,
+      "architecture": {
+        "modality": null,
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": null,
+        "instruct_type": null
+      },
+      "context_length": 262144,
+      "max_completion_tokens": 235929,
+      "top_provider": {
+        "name": "google-ai-studio",
+        "icon_provider_slug": null,
+        "is_fz152_compliant": false,
+        "stores_data_in_russia": false,
+        "is_hosted_on_polza_infrastructure": false,
+        "is_unofficial": false,
+        "is_moderated": false,
+        "context_length": 262144,
+        "max_completion_tokens": 235929,
+        "pricing": {
+          "prompt_per_million": "11.72016000",
+          "currency": "RUB"
+        },
+        "supported_parameters": [],
+        "default_parameters": null
+      },
+      "endpoints": [
+        "/api/v1/systemone"
+      ]
+    },
+    {
+      "id": "microsoft/microsoft-decision-1",
+      "object": "model",
+      "owned_by": "polza-ai",
+      "name": "Microsoft: Microsoft-Decision-1",
+      "type": "classification",
+      "short_description": "Быстрая decision-модель: ответы на вопросы да/нет, выбор и оценку с вероятностями через /v1/systemone.",
+      "icon_provider_slug": "microsoft",
+      "is_fz152_compliant": false,
+      "stores_data_in_russia": false,
+      "created": 1794557147,
+      "architecture": {
+        "modality": null,
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": null,
+        "instruct_type": null
+      },
+      "context_length": 32768,
+      "max_completion_tokens": 29491,
+      "top_provider": {
+        "name": "azure",
+        "icon_provider_slug": null,
+        "is_fz152_compliant": false,
+        "stores_data_in_russia": false,
+        "is_hosted_on_polza_infrastructure": false,
+        "is_unofficial": false,
+        "is_moderated": false,
+        "context_length": 32768,
+        "max_completion_tokens": 29491,
+        "pricing": {
+          "prompt_per_million": "4.92246720",
+          "currency": "RUB"
+        },
+        "supported_parameters": [],
+        "default_parameters": null
+      },
+      "endpoints": [
+        "/api/v1/systemone"
+      ]
+    },
+    {
+      "id": "openai/gpt-6-luna-decisions",
+      "object": "model",
+      "owned_by": "polza-ai",
+      "name": "OpenAI: GPT-6 Luna Decisions",
+      "type": "classification",
+      "short_description": "Decision-модель: ответы на вопросы да/нет, выбор и оценку с вероятностями через /v1/systemone.",
+      "icon_provider_slug": "openai",
+      "is_fz152_compliant": false,
+      "stores_data_in_russia": false,
+      "created": 1794557166,
+      "architecture": {
+        "modality": null,
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": null,
+        "instruct_type": null
+      },
+      "context_length": 1050000,
+      "max_completion_tokens": 945000,
+      "top_provider": {
+        "name": "openai",
+        "icon_provider_slug": null,
+        "is_fz152_compliant": false,
+        "stores_data_in_russia": false,
+        "is_hosted_on_polza_infrastructure": false,
+        "is_unofficial": false,
+        "is_moderated": false,
+        "context_length": 1050000,
+        "max_completion_tokens": 945000,
+        "pricing": {
+          "prompt_per_million": "11.72016000",
+          "currency": "RUB"
+        },
+        "supported_parameters": [],
+        "default_parameters": null
+      },
+      "endpoints": [
+        "/api/v1/systemone"
+      ]
+    },
+    {
+      "id": "typesafe/jev",
+      "object": "model",
+      "owned_by": "polza-ai",
+      "name": "TypeSafe Jev",
+      "type": "classification",
+      "short_description": "Классифицирует текст и оценивает его по заданным критериям, возвращая типизированные ответы с вероятностями для автоматизации решений.",
+      "icon_provider_slug": "akashchat",
+      "is_fz152_compliant": false,
+      "stores_data_in_russia": false,
+      "created": 1789732786,
+      "architecture": {
+        "modality": null,
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": null,
+        "instruct_type": null
+      },
+      "context_length": 64000,
+      "max_completion_tokens": null,
+      "top_provider": {
+        "name": "typesafe",
+        "icon_provider_slug": "zencoder",
+        "is_fz152_compliant": false,
+        "stores_data_in_russia": false,
+        "is_hosted_on_polza_infrastructure": false,
+        "is_unofficial": false,
+        "is_moderated": false,
+        "context_length": 64000,
+        "max_completion_tokens": null,
+        "pricing": {
+          "prompt_per_million": "17.09190000",
+          "currency": "RUB"
+        },
+        "supported_parameters": null,
+        "default_parameters": null
+      },
+      "endpoints": [
+        "/api/v1/systemone"
+      ]
+    }
+  ]
+}

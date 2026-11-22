@@ -22,7 +22,7 @@
 * **Никогда не терять прогон из-за одного токсичного фрагмента.** При `HTTP 400` (safety / content_blocked) батчер обязан делить упавший батч пополам (бинарный поиск проблемного элемента) и помечать только проблемный элемент статусом `safety_blocked`, а не `p = 0.01`.
 * **Ограничение скоупа MVP.** Не добавляй в MVP мультимодальность (`box`, фото, аудио, PDF), Pi-плагин, прямые адаптеры мимо `/api/v1/systemone` и произвольный сырой SQL от агента. Всё это заложено интерфейсами на этап v2.
 * **Безопасность путей.** Все файловые источники (`glob`, `file`, `jsonl`) обязаны проверяться на выход за пределы `DECIDE_ALLOWED_ROOT` и автоматически исключать `.git`, `node_modules`, `dist` и бинарные файлы.
-* **Сначала Шаг 0.** Перед реализацией батчера убедись, что реальные ответы и лимиты Polza AI зафиксированы smoke-тестом в `fixtures/` (см. `docs/plans/mvp-scope.md`).
+* **Сначала Шаг 0.** Реальные ответы и лимиты Polza уже зафиксированы в `fixtures/`; до батчера закрой OpenRouter и проверку safety/overflow. См. [verification](docs/verification/step0-smoke-2026-11-22.md).
 
 ## Инструкции по trigger
 
@@ -30,6 +30,15 @@
 - До создания или изменения теста, fixture, runner-а либо выбора проверки — [тестирование](docs/instructions/testing.md) и [стратегия тестирования](docs/foundation/testing-strategy.md).
 - **stdout MCP-сервера зарезервирован под протокол.** Диагностика идёт в stderr или файловый приёмник; `console.log` в `src/servers/` и в коде, который он импортирует, запрещён.
 
+## Платные запросы
+
+- Живые запросы к Polza AI/OpenRouter разрешены без отдельного согласования.
+- Каждый платный прогон помечай `[PAID]` в команде, выводе и отчёте: шлюз, модели, фактическая стоимость из `usage.cost_rub`.
+- Сначала `--catalog-only` или `dry_run`, затем минимальный живой вызов. Не повторяй платный прогон без причины.
+- Ключи только в `.env`; не выводить в чат, логи, fixtures и коммиты.
+
 ## Состояние репозитория
 
-Сейчас здесь только документация и JSON-пресеты рубрик: `src/`, `tests/`, `fixtures/` и `package.json` ещё не созданы. Команды из README (`npm install`, `npm run build`, `npm run smoke`, `npm run start:mcp`) описывают целевой проект и пока не настроены — не выдавай их за проверенные. После настройки запиши реальные команды в `docs/instructions/testing.md` и в README.
+Каркас готов: `package.json`, `tsconfig.json`, `src/core/{types,config,registry}.ts`, `src/cli/smoke.ts`, тесты и `fixtures/`. Проверено 2026-11-22: `npm run build` — 0, `npm test` — 13/13, `npm run smoke` — 4/4 моделей Polza, итог 0.01617212 ₽ ([verification](docs/verification/step0-smoke-2026-11-22.md)).
+
+Ещё не реализованы: `schema.ts`, `tokenizer.ts`, `sources.ts`, `prefilter.ts`, `store.ts`, `query.ts`, `engine.ts`, `providers/systemone.ts`, `servers/mcp.ts`. `npm run start:mcp` — целевая команда. OpenRouter, safety- и overflow-поведение не проверены.

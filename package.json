@@ -1,0 +1,26 @@
+{
+  "name": "decide-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Универсальный MCP-инструмент анализа на decision-моделях",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test \"dist/**/*.test.js\"",
+    "smoke": "npm run build && node dist/cli/smoke.js",
+    "start:mcp": "node dist/servers/mcp.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "fast-glob": "^3.3.3",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
+}

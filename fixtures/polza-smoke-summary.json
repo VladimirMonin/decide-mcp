@@ -1,0 +1,98 @@
+{
+  "generatedAt": "2026-11-22T17:58:33.961Z",
+  "provider": "polza",
+  "baseUrl": "https://polza.ai/api/v1",
+  "catalogFile": "C:\\PY\\decide-core\\fixtures\\polza-catalog-decisions.json",
+  "models": [
+    {
+      "alias": "gemini",
+      "modelId": "google/gemini-decision-1",
+      "httpStatus": 200,
+      "ok": true,
+      "checks": {
+        "shape": true,
+        "noul": true,
+        "choice": true,
+        "score": true,
+        "usage": true
+      },
+      "responseModel": "google/gemini-decision-1-20261111",
+      "usage": {
+        "inputTokens": 229,
+        "outputTokens": 0,
+        "costRub": 0.00268392
+      },
+      "error": null,
+      "file": "C:\\PY\\decide-core\\fixtures\\polza-gemini-smoke.json",
+      "durationMs": 600
+    },
+    {
+      "alias": "ms",
+      "modelId": "microsoft/microsoft-decision-1",
+      "httpStatus": 200,
+      "ok": true,
+      "checks": {
+        "shape": true,
+        "noul": true,
+        "choice": true,
+        "score": true,
+        "usage": true
+      },
+      "responseModel": "microsoft/microsoft-decision-1-20261009",
+      "usage": {
+        "inputTokens": 119,
+        "outputTokens": 3,
+        "costRub": 0.00058577
+      },
+      "error": null,
+      "file": "C:\\PY\\decide-core\\fixtures\\polza-ms-smoke.json",
+      "durationMs": 859
+    },
+    {
+      "alias": "jev",
+      "modelId": "typesafe/jev",
+      "httpStatus": 200,
+      "ok": true,
+      "checks": {
+        "shape": true,
+        "noul": true,
+        "choice": true,
+        "score": true,
+        "usage": true
+      },
+      "responseModel": "jev-1.14.0",
+      "usage": {
+        "inputTokens": 471,
+        "outputTokens": 69,
+        "costRub": 0.00805028
+      },
+      "error": null,
+      "file": "C:\\PY\\decide-core\\fixtures\\polza-jev-smoke.json",
+      "durationMs": 684
+    },
+    {
+      "alias": "luna",
+      "modelId": "openai/gpt-6-luna-decisions",
+      "httpStatus": 200,
+      "ok": true,
+      "checks": {
+        "shape": true,
+        "noul": true,
+        "choice": true,
+        "score": true,
+        "usage": true
+      },
+      "responseModel": "openai/gpt-6-luna-decisions-20261006",
+      "usage": {
+        "inputTokens": 414,
+        "outputTokens": 0,
+        "costRub": 0.00485215
+      },
+      "error": null,
+      "file": "C:\\PY\\decide-core\\fixtures\\polza-luna-smoke.json",
+      "durationMs": 1314
+    }
+  ],
+  "totalCostRub": 0.01617212,
+  "paid": true
+}

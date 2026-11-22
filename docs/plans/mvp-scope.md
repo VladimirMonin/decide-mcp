@@ -7,6 +7,9 @@
 ## 1. Пошаговый план сборки
 
 ### Шаг 0. Разведка боем (1–2 часа) — ОБЯЗАТЕЛЬНО ДО НАПИСАНИЯ ЯДРА
+
+> **Статус 2026-11-22:** скрипт создан, Polza AI проверен на четырёх моделях. Ответы, лимиты и стоимость — в [verification](../verification/step0-smoke-2026-11-22.md) и `fixtures/`. OpenRouter, safety- и overflow-поведение — NOT RUN; до батчера их нужно закрыть отдельно.
+
 Создать скрипт `src/cli/smoke.ts` и прогнать его против живого Polza AI (и при наличии ключа — против OpenRouter):
 1. Опросить `GET https://polza.ai/api/v1/models/catalog` и записать в `fixtures/polza-catalog.json` фактические ID, `context_length`, лимиты вопросов и цены для:
    * `google/gemini-decision-1`

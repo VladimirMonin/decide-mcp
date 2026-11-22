@@ -67,6 +67,8 @@ export interface BoxQuestion {
 }
 ```
 
+> Внутренние имена примитивов не равны провайдерским. Адаптер `/api/v1/systemone` переводит `bool` → `noul`, `choice.options` → `criteria` и `score.levels` → `criteria`. Внутренний контракт выше остаётся нейтральным; в запрос к провайдеру `options` и `levels` не уходят. Проверено 2026-11-22: запрос с `options`/`levels` получил `HTTP 400 BAD_REQUEST` по пути `questions.<id>.criteria`.
+
 ### Жёсткие правила валидации рубрики (`zod` + линтер)
 * **Ошибки (блокируют запуск):**
   * пустой словарь `questions`;
@@ -331,8 +333,9 @@ export interface NormalizedAnswer {
   /**
    * Нормализованная уверенность [0..1]:
    * - Если модель вернула confidence — используется оно.
-   * - Для bool без поля confidence (Jev, Luna): max(prob, 1 - prob).
-   * - Для choice/score без поля confidence (Luna): разница между top-1 и top-2 вероятностью (margin) или top-1 prob (помечается в meta).
+   * - Для bool без поля confidence (Jev, MS): max(prob, 1 - prob).
+   * - Для choice/score без поля confidence: разница между top-1 и top-2 вероятностью (margin) или top-1 prob (помечается в meta).
+   * - Smoke 2026-11-22: confidence был у всех типов Gemini и Luna; у MS и Jev — у choice/score, но не у noul.
    */
   confidence: number;
   probabilities?: Record<string, number> | number[];
@@ -350,3 +353,5 @@ export interface NormalizedAnswer {
 | `refusal` | Частичный отказ модели по одному вопросу (`type: "refusal"`) | Сохраняется на уровне конкретного ответа |
 | `rate_limited` | `HTTP 429` после исчерпания ретраев | Статус прогона `partial`, уже полученные батчи сохранены в SQLite |
 | `provider_error` | Сетевой сбой / `5xx` после ретраев | Статус прогона `partial` или `failed`, детали в `error_summary` |
+
+> **HTTP 400 бывает двух видов.** Ошибка схемы или контракта приходит как `error.code=BAD_REQUEST` / `detail.error_type=bad_request`; её нельзя делить и ретраить как токсичный элемент — это дефект запроса. Бинарное деление и статус `safety_blocked` применяются только к `content_blocked` / `safety`. Ответ `model` содержит версию с датой или патчем (`jev-1.14.0`), её нужно сохранять для аудита.

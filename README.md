@@ -23,12 +23,25 @@
 
 ---
 
-## Структура пакета документации
+## Структура проекта
 
 ```text
 decide-core/
 ├── README.md                          # Быстрый старт, .env и подключение MCP
 ├── AGENTS.md                          # Инженерный вход для coding-агента
+├── .env.example                       # Шаблон конфигурации (реальный .env не коммитится)
+├── package.json / package-lock.json / tsconfig.json
+├── src/
+│   ├── core/
+│   │   ├── types.ts                   # Алиасы моделей и провайдеров
+│   │   ├── config.ts                  # Загрузка .env и валидация конфигурации
+│   │   ├── registry.ts                # MODEL_REGISTRY на четыре модели
+│   │   ├── config.test.ts
+│   │   └── registry.test.ts
+│   └── cli/
+│       ├── smoke.ts                   # Шаг 0: каталог и живые ответы четырёх моделей
+│       └── smoke.test.ts
+├── fixtures/                          # Сырые ответы Шага 0 (синтетические данные)
 ├── docs/
 │   ├── README.md                      # Навигация по документации
 │   ├── architecture/
@@ -43,6 +56,8 @@ decide-core/
 │   │   └── testing.md                 # Как выбрать, изолировать и запустить проверку
 │   ├── plans/
 │   │   └── mvp-scope.md               # План реализации от Шага 0 до готовности MVP
+│   ├── verification/
+│   │   └── step0-smoke-2026-11-22.md  # Фактические ответы, лимиты и стоимость
 │   └── guides/ru/
 │       ├── rubrics-and-funnels.md     # Правила составления рубрик и 4-этапная воронка
 │       └── cookbook-use-cases.md      # Базовые и продвинутые кейсы по гайдам разработчиков
@@ -53,6 +68,8 @@ decide-core/
     ├── agent_funnel_stage2.json       # Этап 2 воронки: диагностика с полным reasoning
     └── agent_funnel_stage3.json       # Этап 3 воронки: кластеризация первопричин
 ```
+
+**Состояние на 2026-11-22:** каркас и Шаг 0 для Polza AI готовы — `npm run build`, 13 тестов и smoke четырёх моделей прошли. Формат провайдера и расхождения описаны в [отчёте Шага 0](docs/verification/step0-smoke-2026-11-22.md). MCP-сервер, батчер, store и engine ещё не реализованы; `npm run start:mcp` — целевая команда.
 
 ---
 
@@ -66,15 +83,16 @@ decide-core/
 # Установка зависимостей
 npm install
 
-# Сборка TypeScript
+# Сборка TypeScript и офлайн-тесты
 npm run build
+npm test
 ```
 
 ---
 
 ## Конфигурация (`.env`)
 
-Создайте файл `.env` в корне проекта (не коммитить в Git):
+Создайте файл `.env` в корне проекта (не коммитить в Git). Готовый шаблон — [`.env.example`](.env.example):
 
 ```env
 # Активный провайдер по умолчанию: polza | openrouter
@@ -103,14 +121,17 @@ DECIDE_TIMEOUT_MS=30000
 ## Запуск и проверка
 
 ### 1. Разведка боем (Шаг 0 — smoke-test)
-Перед первым запуском MCP-сервера проверьте живые ответы всех четырёх моделей и актуальный каталог лимитов:
+Перед первым запуском MCP-сервера проверьте живые ответы всех четырёх моделей и актуальный каталог лимитов. Живой прогон платный и помечается `[PAID]`:
 
 ```powershell
-# Проверка через Polza AI
+# Бесплатно: только каталог и проверка четырёх ID
+node dist/cli/smoke.js --catalog-only
+
+# Проверка через Polza AI: четыре живых вызова
 $env:DECIDE_PROVIDER="polza"
 npm run smoke
 
-# Проверка через OpenRouter
+# Проверка через OpenRouter (нужен OPENROUTER_API_KEY в .env)
 $env:DECIDE_PROVIDER="openrouter"
 npm run smoke
 ```
