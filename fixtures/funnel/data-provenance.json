@@ -19,10 +19,10 @@
     "emails": 0,
     "phones": 0,
     "homePaths": 15,
-    "homeDirs": 37,
+    "homeDirs": 15,
     "projectRoots": 72,
     "projectNames": 37,
-    "absolutePaths": 52,
+    "absolutePaths": 57,
     "quotes": 132,
     "uuids": 0
   },
@@ -42,10 +42,10 @@
   },
   "replacements": {
     "homePaths": 15,
-    "homeDirs": 8,
+    "homeDirs": 0,
     "projectPaths": 37,
     "projectNames": 1,
-    "absolutePaths": 2,
+    "absolutePaths": 9,
     "quotes": 14,
     "quoteLines": 18,
     "secrets": 0,
@@ -53,5 +53,5 @@
     "phones": 0,
     "uuids": 0
   },
-  "sanitizationNote": "Экранированные git-bash пути нормализуются до масок; домашний корень и его структура, а также корни проектов и абсолютные Windows-пути режутся целиком; reasoning/текст с приватными указаниями заменяется маркером [фрагмент удалён по приватности], в результатах/аргументах строки с такими указаниями вырезаются. Скан утечек идёт отдельными паттернами, не regex из sanitize()."
+  "sanitizationNote": "Экранированные git-bash пути нормализуются до масок; домашний корень и его структура, а также корни проектов и абсолютные Windows- и системные POSIX-пути режутся целиком; reasoning/текст с приватными указаниями заменяется маркером [фрагмент удалён по приватности]. Скан утечек идёт отдельными паттернами, не regex из sanitize()."
 }

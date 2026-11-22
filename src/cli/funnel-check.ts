@@ -167,6 +167,17 @@ const SECRET_PATTERNS: Array<[RegExp, string]> = [
 
 const REDACTION_MARKER = "[фрагмент удалён по приватности]";
 
+/**
+ * Windows-путь целиком, включая пробелы (`Program Files`): режет до конца
+ * токена, но не съедает ` 2>`, ` &&` и ` ||`.
+ */
+const WINDOWS_ABS_TOKEN_RE =
+  /[A-Za-z]:[\\/](?:[^\\/:*?"<>|&\r\n]+[\\/])*[^\\/:*?"<>|&\r\n]+/g;
+
+/** Системные POSIX-пути: не приватные, но по требованию маскируются целиком. */
+const POSIX_ABS_RE =
+  /(?<![\w.])\/(?:c|mnt|tmp|var|opt|usr|etc|home|Users)\/[A-Za-z0-9._@%+~-]+(?:\/[A-Za-z0-9._@%+~-]+)*/g;
+
 /** Фразы, которыми reasoning/текст цитирует приватные инструкции и переписку. */
 const QUOTE_MARKERS =
   /(Key corrections|The follow-up|follow-up says|the orchestrator|orchestrator is asking|The user says|The user asked|user asked|\bthe task\b|task description|task says|\bthe plan\b|plan says|\bS\d{2}(?:-[A-Z0-9]+)?\b|\bprompt\b|\binstructions?\b|\bowner\b|\breviewer\b|\bsubagent\b|владелец|оркестратор|переписк|задани|инструкц|\bплан|пользовател)/i;
@@ -233,7 +244,7 @@ function sanitize(
   // Структура домашнего каталога, даже без самого корня.
   result = replaceCounted(
     result,
-    /\b(?:\.rustup|\.cargo|AppData|toolchains)(?:[\\/][^\s"'`<>|)]*)?/gi,
+    /\b(?:\.rustup|\.cargo|AppData)(?:[\\/][^\s"'`<>|)]*)?/gi,
     "<HOME_DIR>",
     (count) => {
       stats.homeDirs += count;
@@ -275,7 +286,17 @@ function sanitize(
     },
   );
 
-  // Последний рубеж по путям: любые оставшиеся абсолютные Windows-пути
+  // Сначала весь Windows-путь, включая пробелы (`Program Files`), чтобы не
+  // оставлять голый хвост `Files\Rust\...`; ` 2>` и ` &&` остаются снаружи.
+  result = result.replace(WINDOWS_ABS_TOKEN_RE, (matched) => {
+    stats.absolutePaths += 1;
+    const trailing = matched.match(/\s*$/)?.[0] ?? "";
+    const core = matched.slice(0, matched.length - trailing.length);
+    const fd = core.match(/\s+\d+$/)?.[0] ?? "";
+    return `<ABS_PATH>${fd}${trailing}`;
+  });
+
+  // Последний рубеж: оставшиеся абсолютные Windows-пути без пробелов
   // (системные каталоги и т.п.) тоже не нужны для оценки.
   result = replaceCounted(
     result,
@@ -285,6 +306,11 @@ function sanitize(
       stats.absolutePaths += count;
     },
   );
+
+  // Системные POSIX-пути (`/usr/bin/bash` и т.п.) — тоже абсолютные.
+  result = replaceCounted(result, POSIX_ABS_RE, "<ABS_PATH>", (count) => {
+    stats.absolutePaths += count;
+  });
 
   result = replaceCounted(
     result,
@@ -361,13 +387,14 @@ function scanLeaks(text: string): LeakScan {
     homePaths: count(
       /(?:[A-Za-z]:|[\\/][A-Za-z])?[\\/]*Users[\\/]+User/gi,
     ),
-    homeDirs: count(/\.rustup|\.cargo|AppData[\\/]|toolchains/gi),
+    homeDirs: count(/\.rustup|\.cargo|AppData[\\/]/gi),
     projectRoots:
       count(/(?:[A-Za-z]:|[\\/][A-Za-z])?[\\/]+PY(?:[\\/]|$)/gi) +
       count(/\bPY<[^>\s]+>|\bPY[\\/][A-Za-z0-9_-]+/g),
     projectNames:
       PROJECT_NAME.length === 0 ? 0 : text.split(PROJECT_NAME).length - 1,
-    absolutePaths: count(/[A-Za-z]:[\\/](?![nrt"'\\])/g),
+    absolutePaths:
+      count(/[A-Za-z]:[\\/](?![nrt"'\\])/g) + count(POSIX_ABS_RE),
     quotes: count(
       /Key corrections|The follow-up|follow-up says|the orchestrator|orchestrator is asking|The user says|The user asked|user asked|\bthe task\b|task description|task says|\bthe plan\b|plan says|\bS\d{2}(?:-[A-Z0-9]+)?\b|\bprompt\b|\binstructions?\b|\bowner\b|\breviewer\b|\bsubagent\b|владелец|оркестратор|переписк|задани|инструкц|\bплан|пользовател/gi,
     ),
@@ -660,8 +687,8 @@ async function main(): Promise<void> {
     replacements: dataset.replacements,
     sanitizationNote:
       "Экранированные git-bash пути нормализуются до масок; домашний корень и его структура, " +
-      "а также корни проектов и абсолютные Windows-пути режутся целиком; reasoning/текст " +
-      "с приватными указаниями заменяется маркером [reasoning удалён по приватности]. " +
+      "а также корни проектов и абсолютные Windows- и системные POSIX-пути режутся целиком; reasoning/текст " +
+      "с приватными указаниями заменяется маркером " + REDACTION_MARKER + ". " +
       "Скан утечек идёт отдельными паттернами, не regex из sanitize().",
   };
   writeFileSync(
