@@ -303,10 +303,19 @@ export interface FilterExpr {
       "alias": "gemini",
       "provider_model_id": "google/gemini-decision-1",
       "context_window": 262144,
-      "max_questions_per_request": 1000,
+      "max_questions_per_request": 256,
       "max_score_levels": 255,
       "supports_media": false,
-      "recommended_for": "Широкий скрининг до 1000 элементов за 1 вызов, Этап 1 воронки"
+      "recommended_for": "Широкий скрининг (до 256 вопросов за вызов; 1000 элементов — несколькими батчами), Этап 1 воронки"
+    },
+    {
+      "alias": "luna",
+      "provider_model_id": "openai/gpt-6-luna-decisions",
+      "context_window": 1050000,
+      "max_questions_per_request": 200,
+      "max_score_levels": 10,
+      "supports_media": false,
+      "recommended_for": "Длинные истории диалогов и крупные модули"
     }
   ],
   "presets": [

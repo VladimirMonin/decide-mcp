@@ -1,0 +1,163 @@
+{
+  "note": "Отброшенные попытки L10, восстановленные из stdout сессии 2026-11-22; новых платных вызовов нет. Для concurrency run_id/usage в stdout не печатались, usage выведен из соответствующего model/ms (тот же набор, рубрика и число батчей; cost_rub совпадает).",
+  "attempts": [
+    {
+      "id": "attempt-200",
+      "items": 200,
+      "questionsPerItem": 2,
+      "requestedQuestions": 400,
+      "costRub": 2.42108824,
+      "paidCalls": 4,
+      "reason": "HTTP 400 по лимиту вопросов; выборка уменьшена до 120, затем до 100 шагов",
+      "runs": [
+        {
+          "label": "model/gemini",
+          "alias": "gemini",
+          "runId": "run_20261122_193205_782b",
+          "status": "failed",
+          "httpStatus": 400,
+          "errorCode": "BAD_REQUEST",
+          "traceId": "55d9f911-09d5-4213-ba1f-28168ce0a01c",
+          "error": "BAD_REQUEST: questions должен быть непустым объектом (до 256 вопросов и 400 000 символов): у каждого вопроса type — noul, choice или score — и непустые instructions",
+          "costRub": 0,
+          "usage": { "inputTokens": 0, "outputTokens": 0 },
+          "batches": 1,
+          "durationMs": 790
+        },
+        {
+          "label": "model/ms",
+          "alias": "ms",
+          "runId": "run_20261122_193207_c803",
+          "status": "completed",
+          "costRub": 0.34123526,
+          "usage": { "inputTokens": 69322, "outputTokens": 400 },
+          "batches": 4,
+          "durationMs": 3254
+        },
+        {
+          "label": "model/jev",
+          "alias": "jev",
+          "runId": "run_20261122_193211_35e7",
+          "status": "completed",
+          "costRub": 1.39738246,
+          "usage": { "inputTokens": 81757, "outputTokens": 9012 },
+          "batches": 3,
+          "durationMs": 1481
+        },
+        {
+          "label": "model/luna",
+          "alias": "luna",
+          "runId": "run_20261122_193214_7fd1",
+          "status": "failed",
+          "httpStatus": 400,
+          "errorCode": "BAD_REQUEST",
+          "traceId": "0a854782-7d1b-45d3-b8ac-f8e8b6d41879",
+          "error": "BAD_REQUEST: questions должен быть непустым объектом (до 256 вопросов и 400 000 символов): у каждого вопроса type — noul, choice или score — и непустые instructions",
+          "costRub": 0,
+          "usage": { "inputTokens": 0, "outputTokens": 0 },
+          "batches": 1,
+          "durationMs": 386
+        },
+        {
+          "label": "concurrency/1",
+          "alias": "ms",
+          "runId": null,
+          "status": "completed",
+          "costRub": 0.34123526,
+          "usage": { "inputTokens": 69322, "outputTokens": 400 },
+          "usageSource": "derived from model/ms: same 200 items/rubric/batches, cost matches exactly",
+          "batches": 4,
+          "durationMs": 9820
+        },
+        {
+          "label": "concurrency/4",
+          "alias": "ms",
+          "runId": null,
+          "status": "completed",
+          "costRub": 0.34123526,
+          "usage": { "inputTokens": 69322, "outputTokens": 400 },
+          "usageSource": "derived from model/ms: same 200 items/rubric/batches, cost matches exactly",
+          "batches": 4,
+          "durationMs": 3404
+        }
+      ]
+    },
+    {
+      "id": "attempt-120",
+      "items": 120,
+      "questionsPerItem": 2,
+      "requestedQuestions": 240,
+      "costRub": 1.98139649,
+      "paidCalls": 5,
+      "reason": "HTTP 400 по лимиту вопросов luna; выборка уменьшена до 100 шагов",
+      "runs": [
+        {
+          "label": "model/gemini",
+          "alias": "gemini",
+          "runId": "run_20261122_193303_3229",
+          "status": "completed",
+          "costRub": 0.52975123,
+          "usage": { "inputTokens": 45200, "outputTokens": 0 },
+          "batches": 1,
+          "durationMs": 1885
+        },
+        {
+          "label": "model/ms",
+          "alias": "ms",
+          "runId": "run_20261122_193306_77e4",
+          "status": "completed",
+          "costRub": 0.20360308,
+          "usage": { "inputTokens": 41362, "outputTokens": 240 },
+          "batches": 3,
+          "durationMs": 2625
+        },
+        {
+          "label": "model/jev",
+          "alias": "jev",
+          "runId": "run_20261122_193309_bbee",
+          "status": "completed",
+          "costRub": 0.84083602,
+          "usage": { "inputTokens": 49195, "outputTokens": 5408 },
+          "batches": 2,
+          "durationMs": 1513
+        },
+        {
+          "label": "model/luna",
+          "alias": "luna",
+          "runId": "run_20261122_193311_3fc6",
+          "status": "failed",
+          "httpStatus": 400,
+          "errorCode": "BAD_REQUEST",
+          "traceId": "16aba268-1369-4d25-9052-bcd715f42026",
+          "error": "BAD_REQUEST: Некорректный запрос.: OpenAI Decisions accepts at most 200 questions, got 240",
+          "costRub": 0,
+          "usage": { "inputTokens": 0, "outputTokens": 0 },
+          "batches": 1,
+          "durationMs": 1394
+        },
+        {
+          "label": "concurrency/1",
+          "alias": "ms",
+          "runId": null,
+          "status": "completed",
+          "costRub": 0.20360308,
+          "usage": { "inputTokens": 41362, "outputTokens": 240 },
+          "usageSource": "derived from model/ms: same 120 items/rubric/batches, cost matches exactly",
+          "batches": 3,
+          "durationMs": 5195
+        },
+        {
+          "label": "concurrency/4",
+          "alias": "ms",
+          "runId": null,
+          "status": "completed",
+          "costRub": 0.20360308,
+          "usage": { "inputTokens": 41362, "outputTokens": 240 },
+          "usageSource": "derived from model/ms: same 120 items/rubric/batches, cost matches exactly",
+          "batches": 3,
+          "durationMs": 2206
+        }
+      ]
+    }
+  ]
+}

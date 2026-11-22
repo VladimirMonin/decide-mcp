@@ -1,0 +1,57 @@
+{
+  "source": "Pi agent session (2026-11-22), assistant steps; user messages excluded",
+  "sourceSha256": "60d4319f74501c6200b978a8afbbf79fa3088656fc08fbf5b272503206bd3b6a",
+  "sourceEntries": 1027,
+  "segment": "1..100 tool-call steps",
+  "steps": 100,
+  "errorSteps": 2,
+  "caps": {
+    "reasoning": 500,
+    "text": 200,
+    "arguments": 300,
+    "result": 300,
+    "error": 150
+  },
+  "rawScan": {
+    "apiKeys": 4,
+    "bearer": 1,
+    "envKeys": 0,
+    "emails": 0,
+    "phones": 0,
+    "homePaths": 0,
+    "homeDirs": 0,
+    "projectRoots": 279,
+    "projectNames": 139,
+    "absolutePaths": 147,
+    "quotes": 422,
+    "uuids": 5
+  },
+  "sanitizedScan": {
+    "apiKeys": 0,
+    "bearer": 0,
+    "envKeys": 0,
+    "emails": 0,
+    "phones": 0,
+    "homePaths": 0,
+    "homeDirs": 0,
+    "projectRoots": 0,
+    "projectNames": 0,
+    "absolutePaths": 0,
+    "quotes": 0,
+    "uuids": 0
+  },
+  "replacements": {
+    "homePaths": 0,
+    "homeDirs": 0,
+    "projectPaths": 137,
+    "projectNames": 0,
+    "absolutePaths": 6,
+    "quotes": 35,
+    "quoteLines": 115,
+    "secrets": 5,
+    "emails": 0,
+    "phones": 0,
+    "uuids": 5
+  },
+  "sanitizationNote": "Экранированные пути нормализуются; домашний/проектный/абсолютный корни режутся целиком; публичные схемы URL/file:// сохраняются; reasoning/текст с приватными указаниями заменяется маркером, в результатах и аргументах строки с такими указаниями вырезаются. Скан утечек — отдельными паттернами."
+}

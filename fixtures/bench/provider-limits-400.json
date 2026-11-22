@@ -1,0 +1,35 @@
+{
+  "note": "Тела HTTP 400 из отброшенных попыток L10, сохранённые из stdout errorSummary. Новых платных вызовов для этого файла не было; полный сырой HTTP body не сохранялся.",
+  "cases": [
+    {
+      "attempt": "200 items × 2 questions",
+      "model": "gemini",
+      "runId": "run_20261122_193205_782b",
+      "requestedQuestions": 400,
+      "httpStatus": 400,
+      "errorCode": "BAD_REQUEST",
+      "traceId": "55d9f911-09d5-4213-ba1f-28168ce0a01c",
+      "body": "BAD_REQUEST: questions должен быть непустым объектом (до 256 вопросов и 400 000 символов): у каждого вопроса type — noul, choice или score — и непустые instructions"
+    },
+    {
+      "attempt": "200 items × 2 questions",
+      "model": "luna",
+      "runId": "run_20261122_193214_7fd1",
+      "requestedQuestions": 400,
+      "httpStatus": 400,
+      "errorCode": "BAD_REQUEST",
+      "traceId": "0a854782-7d1b-45d3-b8ac-f8e8b6d41879",
+      "body": "BAD_REQUEST: questions должен быть непустым объектом (до 256 вопросов и 400 000 символов): у каждого вопроса type — noul, choice или score — и непустые instructions"
+    },
+    {
+      "attempt": "120 items × 2 questions",
+      "model": "luna",
+      "runId": "run_20261122_193311_3fc6",
+      "requestedQuestions": 240,
+      "httpStatus": 400,
+      "errorCode": "BAD_REQUEST",
+      "traceId": "16aba268-1369-4d25-9052-bcd715f42026",
+      "body": "BAD_REQUEST: Некорректный запрос.: OpenAI Decisions accepts at most 200 questions, got 240"
+    }
+  ]
+}

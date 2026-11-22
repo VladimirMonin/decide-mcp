@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { batchLimitsFor, planBatches } from "./batcher.js";
 import { MODEL_REGISTRY, getModel, listModels } from "./registry.js";
 import { MODEL_ALIASES } from "./types.js";
 
@@ -28,4 +29,50 @@ test("мультимодальность в MVP выключена", () => {
   for (const model of listModels("polza")) {
     assert.equal(model.supportsMedia, false);
   }
+});
+
+test("план батча не превышает maxQuestionsPerRequest модели", () => {
+  const questionIds = ["first", "second"];
+  const rubric = {
+    questions: {
+      first: { type: "bool" as const, instructions: "Первый вопрос?" },
+      second: { type: "bool" as const, instructions: "Второй вопрос?" },
+    },
+  };
+  const items = Array.from({ length: 300 }, (_unused, index) => ({
+    id: `step_${String(index + 1).padStart(3, "0")}`,
+    content: "небольшой фрагмент",
+  }));
+
+  for (const alias of MODEL_ALIASES) {
+    const model = getModel(alias, "polza");
+    const plan = planBatches({
+      modelAlias: alias,
+      limits: batchLimitsFor(model),
+      rubric,
+      items,
+    });
+    assert.ok(plan.batches.length > 0, `${alias}: план пуст`);
+    for (const batch of plan.batches) {
+      assert.ok(
+        batch.items.length * batch.questionIds.length <=
+          model.maxQuestionsPerRequest,
+        `${alias}: ${batch.items.length} элементов × ${batch.questionIds.length} вопросов > ${model.maxQuestionsPerRequest}`,
+      );
+    }
+    assert.equal(plan.questionsPerItem, questionIds.length);
+  }
+});
+
+test("лимиты вопросов gemini/luna соответствуют живым HTTP 400", () => {
+  assert.equal(MODEL_REGISTRY.gemini.maxQuestionsPerRequest, 256);
+  assert.equal(MODEL_REGISTRY.luna.maxQuestionsPerRequest, 200);
+  assert.equal(
+    MODEL_REGISTRY.gemini.maxQuestionsSource,
+    "measured-2026-11-22",
+  );
+  assert.equal(
+    MODEL_REGISTRY.luna.maxQuestionsSource,
+    "measured-2026-11-22",
+  );
 });

@@ -6,6 +6,8 @@ export interface ModelPassport {
   contextWindow: number;
   maxCompletionTokens: number | null;
   maxQuestionsPerRequest: number;
+  /** Источник maxQuestionsPerRequest: живой HTTP 400 или документация. */
+  maxQuestionsSource: "measured-2026-11-22" | "docs";
   /**
    * Жёсткий потолок ступеней `score`: выше — ошибка рубрики.
    * `gemini` по контракту принимает 2..255, у `ms`, `jev` и `luna` потолок 10.
@@ -21,7 +23,7 @@ export interface ModelPassport {
   recommendedFor: string;
   /**
    * catalog-2026-11-22 — context window сверен с живым каталогом Polza AI.
-   * docs — лимит вопросов из документации, на Шаге 0 не проверялся.
+   * Источник maxQuestionsPerRequest хранится отдельно в maxQuestionsSource.
    */
   limitsSource: "catalog-2026-11-22" | "docs";
 }
@@ -35,12 +37,13 @@ export const MODEL_REGISTRY: Record<ModelAlias, ModelPassport> = {
     },
     contextWindow: 262_144,
     maxCompletionTokens: 235_929,
-    maxQuestionsPerRequest: 1_000,
+    maxQuestionsPerRequest: 256,
+    maxQuestionsSource: "measured-2026-11-22",
     maxScoreLevels: 255,
     recommendedScoreLevels: 10,
     supportsMedia: false,
     recommendedFor:
-      "Широкий скрининг до 1000 элементов за один вызов, первый этап воронки",
+      "Широкий скрининг (до 256 вопросов за вызов; 1000 элементов — несколькими батчами), первый этап воронки",
     limitsSource: "catalog-2026-11-22",
   },
   ms: {
@@ -52,6 +55,7 @@ export const MODEL_REGISTRY: Record<ModelAlias, ModelPassport> = {
     contextWindow: 32_768,
     maxCompletionTokens: 29_491,
     maxQuestionsPerRequest: 150,
+    maxQuestionsSource: "docs",
     maxScoreLevels: 10,
     recommendedScoreLevels: 10,
     supportsMedia: false,
@@ -68,6 +72,7 @@ export const MODEL_REGISTRY: Record<ModelAlias, ModelPassport> = {
     contextWindow: 64_000,
     maxCompletionTokens: null,
     maxQuestionsPerRequest: 256,
+    maxQuestionsSource: "docs",
     maxScoreLevels: 10,
     recommendedScoreLevels: 10,
     supportsMedia: false,
@@ -83,7 +88,8 @@ export const MODEL_REGISTRY: Record<ModelAlias, ModelPassport> = {
     },
     contextWindow: 1_050_000,
     maxCompletionTokens: 945_000,
-    maxQuestionsPerRequest: 400,
+    maxQuestionsPerRequest: 200,
+    maxQuestionsSource: "measured-2026-11-22",
     maxScoreLevels: 10,
     recommendedScoreLevels: 10,
     supportsMedia: false,

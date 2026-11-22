@@ -1,0 +1,761 @@
+{
+  "generatedAt": "2026-11-22T19:34:02.156Z",
+  "provider": "polza",
+  "data": {
+    "source": "Pi agent session (2026-11-22), assistant steps; user messages excluded",
+    "sourceSha256": "60d4319f74501c6200b978a8afbbf79fa3088656fc08fbf5b272503206bd3b6a",
+    "sourceEntries": 1027,
+    "segment": "1..100 tool-call steps",
+    "steps": 100,
+    "errorSteps": 2,
+    "caps": {
+      "reasoning": 500,
+      "text": 200,
+      "arguments": 300,
+      "result": 300,
+      "error": 150
+    },
+    "rawScan": {
+      "apiKeys": 4,
+      "bearer": 1,
+      "envKeys": 0,
+      "emails": 0,
+      "phones": 0,
+      "homePaths": 0,
+      "homeDirs": 0,
+      "projectRoots": 279,
+      "projectNames": 139,
+      "absolutePaths": 147,
+      "quotes": 422,
+      "uuids": 5
+    },
+    "sanitizedScan": {
+      "apiKeys": 0,
+      "bearer": 0,
+      "envKeys": 0,
+      "emails": 0,
+      "phones": 0,
+      "homePaths": 0,
+      "homeDirs": 0,
+      "projectRoots": 0,
+      "projectNames": 0,
+      "absolutePaths": 0,
+      "quotes": 0,
+      "uuids": 0
+    },
+    "replacements": {
+      "homePaths": 0,
+      "homeDirs": 0,
+      "projectPaths": 137,
+      "projectNames": 0,
+      "absolutePaths": 6,
+      "quotes": 35,
+      "quoteLines": 115,
+      "secrets": 5,
+      "emails": 0,
+      "phones": 0,
+      "uuids": 5
+    },
+    "sanitizationNote": "Экранированные пути нормализуются; домашний/проектный/абсолютный корни режутся целиком; публичные схемы URL/file:// сохраняются; reasoning/текст с приватными указаниями заменяется маркером, в результатах и аргументах строки с такими указаниями вырезаются. Скан утечек — отдельными паттернами."
+  },
+  "models": [
+    {
+      "alias": "gemini",
+      "runId": "run_20261122_193345_448b",
+      "status": "completed",
+      "warnings": [],
+      "stats": {
+        "items_total": 100,
+        "items_processed": 100,
+        "items_skipped": 0,
+        "items_blocked": 0,
+        "batches_total": 1,
+        "input_tokens": 37612,
+        "output_tokens": 0,
+        "cost_rub": 0.44081866,
+        "cost_usd": null,
+        "duration_ms": 2344
+      },
+      "summary": {
+        "is_problem": {
+          "type": "bool",
+          "count": 100,
+          "avg_prob": 0.15447336521929333,
+          "buckets": {
+            "0.0..0.1": 35,
+            "0.2..0.3": 14,
+            "0.1..0.2": 42,
+            "0.3..0.4": 6,
+            "0.5..0.6": 1,
+            "0.4..0.5": 2
+          }
+        },
+        "problem_score": {
+          "type": "score",
+          "count": 100,
+          "min": 0.34549806085490414,
+          "avg": 0.6820193308465605,
+          "max": 1.4623860116444956,
+          "buckets": {
+            "0": 80,
+            "1": 20
+          }
+        }
+      },
+      "planBatches": 1,
+      "estimatedTokens": 50057,
+      "itemsPerSec": 42.66211604095563,
+      "secPerBatch": 2.344,
+      "tokensPerItem": 376.12,
+      "costPer1000": 4.4081866,
+      "estimateErrorPct": 33.08784430500904,
+      "boolZones": {
+        "red": 35,
+        "green": 0,
+        "grey": 65
+      },
+      "scoreAtLeast15": 0,
+      "scoreAtLeast25": 0
+    },
+    {
+      "alias": "ms",
+      "runId": "run_20261122_193348_c826",
+      "status": "completed",
+      "warnings": [],
+      "stats": {
+        "items_total": 100,
+        "items_processed": 100,
+        "items_skipped": 0,
+        "items_blocked": 0,
+        "batches_total": 2,
+        "input_tokens": 34346,
+        "output_tokens": 200,
+        "cost_rub": 0.16906706,
+        "cost_usd": null,
+        "duration_ms": 2624
+      },
+      "summary": {
+        "is_problem": {
+          "type": "bool",
+          "count": 100,
+          "avg_prob": 0.04647279885653873,
+          "buckets": {
+            "0.0..0.1": 92,
+            "0.2..0.3": 3,
+            "0.4..0.5": 1,
+            "0.9..1.0": 2,
+            "0.1..0.2": 1,
+            "0.8..0.9": 1
+          }
+        },
+        "problem_score": {
+          "type": "score",
+          "count": 100,
+          "min": 0.0010998674718896127,
+          "avg": 0.23089639669274295,
+          "max": 2.0819769133199175,
+          "buckets": {
+            "0": 85,
+            "1": 14,
+            "2": 1
+          }
+        }
+      },
+      "planBatches": 2,
+      "estimatedTokens": 50436,
+      "itemsPerSec": 38.109756097560975,
+      "secPerBatch": 1.312,
+      "tokensPerItem": 343.46,
+      "costPer1000": 1.6906706,
+      "estimateErrorPct": 46.846794386537006,
+      "boolZones": {
+        "red": 92,
+        "green": 2,
+        "grey": 6
+      },
+      "scoreAtLeast15": 1,
+      "scoreAtLeast25": 0
+    },
+    {
+      "alias": "jev",
+      "runId": "run_20261122_193351_cbf7",
+      "status": "completed",
+      "warnings": [],
+      "stats": {
+        "items_total": 100,
+        "items_processed": 100,
+        "items_skipped": 0,
+        "items_blocked": 0,
+        "batches_total": 2,
+        "input_tokens": 40787,
+        "output_tokens": 4508,
+        "cost_rub": 0.69712732,
+        "cost_usd": null,
+        "duration_ms": 1352
+      },
+      "summary": {
+        "is_problem": {
+          "type": "bool",
+          "count": 100,
+          "avg_prob": 0.23859999999999984,
+          "buckets": {
+            "0.2..0.3": 14,
+            "0.3..0.4": 7,
+            "0.1..0.2": 52,
+            "0.0..0.1": 10,
+            "0.5..0.6": 8,
+            "0.8..0.9": 2,
+            "0.4..0.5": 4,
+            "0.9..1.0": 3
+          }
+        },
+        "problem_score": {
+          "type": "score",
+          "count": 100,
+          "min": 0.01,
+          "avg": 0.3367,
+          "max": 1.22,
+          "buckets": {
+            "0": 77,
+            "1": 23
+          }
+        }
+      },
+      "planBatches": 2,
+      "estimatedTokens": 50436,
+      "itemsPerSec": 73.96449704142012,
+      "secPerBatch": 0.676,
+      "tokensPerItem": 407.87,
+      "costPer1000": 6.9712732,
+      "estimateErrorPct": 23.657047588692475,
+      "boolZones": {
+        "red": 19,
+        "green": 3,
+        "grey": 78
+      },
+      "scoreAtLeast15": 0,
+      "scoreAtLeast25": 0
+    },
+    {
+      "alias": "luna",
+      "runId": "run_20261122_193352_767f",
+      "status": "completed",
+      "warnings": [],
+      "stats": {
+        "items_total": 100,
+        "items_processed": 100,
+        "items_skipped": 0,
+        "items_blocked": 0,
+        "batches_total": 1,
+        "input_tokens": 49968,
+        "output_tokens": 0,
+        "cost_rub": 0.58563295,
+        "cost_usd": null,
+        "duration_ms": 1622
+      },
+      "summary": {
+        "is_problem": {
+          "type": "bool",
+          "count": 100,
+          "avg_prob": 0.10489999999999997,
+          "buckets": {
+            "0.0..0.1": 81,
+            "0.6..0.7": 3,
+            "0.8..0.9": 2,
+            "0.7..0.8": 2,
+            "0.1..0.2": 5,
+            "0.5..0.6": 2,
+            "0.9..1.0": 2,
+            "0.4..0.5": 1,
+            "0.2..0.3": 2
+          }
+        },
+        "problem_score": {
+          "type": "score",
+          "count": 100,
+          "min": 0.02,
+          "avg": 0.31499999999999995,
+          "max": 1.07,
+          "buckets": {
+            "0": 77,
+            "1": 23
+          }
+        }
+      },
+      "planBatches": 1,
+      "estimatedTokens": 50057,
+      "itemsPerSec": 61.65228113440197,
+      "secPerBatch": 1.622,
+      "tokensPerItem": 499.68,
+      "costPer1000": 5.8563295,
+      "estimateErrorPct": 0.17811399295549152,
+      "boolZones": {
+        "red": 81,
+        "green": 2,
+        "grey": 17
+      },
+      "scoreAtLeast15": 0,
+      "scoreAtLeast25": 0
+    }
+  ],
+  "comparisons": [
+    {
+      "left": "gemini",
+      "right": "ms",
+      "bool": {
+        "matched": 100,
+        "meanAbsDiff": 0.14509602168388994,
+        "agreement": 0.98,
+        "contrasts": 5
+      },
+      "score": {
+        "matched": 100,
+        "meanAbsDiff": 0.5161907974411022,
+        "contrasts": 5
+      }
+    },
+    {
+      "left": "gemini",
+      "right": "jev",
+      "bool": {
+        "matched": 100,
+        "meanAbsDiff": 0.10865382409274918,
+        "agreement": 0.88,
+        "contrasts": 5
+      },
+      "score": {
+        "matched": 100,
+        "meanAbsDiff": 0.3654420300444469,
+        "contrasts": 5
+      }
+    },
+    {
+      "left": "gemini",
+      "right": "luna",
+      "bool": {
+        "matched": 100,
+        "meanAbsDiff": 0.15809812364111914,
+        "agreement": 0.9,
+        "contrasts": 5
+      },
+      "score": {
+        "matched": 100,
+        "meanAbsDiff": 0.37572884979780596,
+        "contrasts": 5
+      }
+    },
+    {
+      "left": "ms",
+      "right": "jev",
+      "bool": {
+        "matched": 100,
+        "meanAbsDiff": 0.20168885598242003,
+        "agreement": 0.9,
+        "contrasts": 5
+      },
+      "score": {
+        "matched": 100,
+        "meanAbsDiff": 0.20620622115031112,
+        "contrasts": 5
+      }
+    },
+    {
+      "left": "ms",
+      "right": "luna",
+      "bool": {
+        "matched": 100,
+        "meanAbsDiff": 0.08353916552760088,
+        "agreement": 0.92,
+        "contrasts": 5
+      },
+      "score": {
+        "matched": 100,
+        "meanAbsDiff": 0.2419477486034852,
+        "contrasts": 5
+      }
+    },
+    {
+      "left": "jev",
+      "right": "luna",
+      "bool": {
+        "matched": 100,
+        "meanAbsDiff": 0.15509999999999993,
+        "agreement": 0.94,
+        "contrasts": 5
+      },
+      "score": {
+        "matched": 100,
+        "meanAbsDiff": 0.1339,
+        "contrasts": 5
+      }
+    }
+  ],
+  "concurrency": [
+    {
+      "concurrency": 1,
+      "planBatches": 2,
+      "runId": "run_20261122_193354_9073",
+      "batches": 2,
+      "items": 100,
+      "durationMs": 4079,
+      "itemsPerSec": 24.51581269919098,
+      "secPerBatch": 2.0395,
+      "costRub": 0.16906706
+    },
+    {
+      "concurrency": 4,
+      "planBatches": 2,
+      "runId": "run_20261122_193359_7266",
+      "batches": 2,
+      "items": 100,
+      "durationMs": 2215,
+      "itemsPerSec": 45.146726862302486,
+      "secPerBatch": 1.1075,
+      "costRub": 0.16906706
+    }
+  ],
+  "deep": {
+    "runId": "run_20261122_193401_479c",
+    "selected": 12,
+    "stats": {
+      "items_total": 12,
+      "items_processed": 12,
+      "items_skipped": 0,
+      "items_blocked": 0,
+      "batches_total": 1,
+      "input_tokens": 10085,
+      "output_tokens": 1879,
+      "cost_rub": 0.17237181,
+      "cost_usd": null,
+      "duration_ms": 720
+    },
+    "summary": {
+      "bad_tool_call": {
+        "type": "bool",
+        "count": 12,
+        "avg_prob": 0.25499999999999995,
+        "buckets": {
+          "0.1..0.2": 4,
+          "0.5..0.6": 1,
+          "0.2..0.3": 6,
+          "0.4..0.5": 1
+        }
+      },
+      "impact_severity": {
+        "type": "score",
+        "count": 12,
+        "min": 0.44,
+        "avg": 0.9508333333333332,
+        "max": 1.4,
+        "buckets": {
+          "0": 3,
+          "1": 9
+        }
+      },
+      "overthinking_loop": {
+        "type": "bool",
+        "count": 12,
+        "avg_prob": 0.15583333333333335,
+        "buckets": {
+          "0.0..0.1": 4,
+          "0.3..0.4": 2,
+          "0.1..0.2": 5,
+          "0.2..0.3": 1
+        }
+      },
+      "reasoning_logic_fail": {
+        "type": "bool",
+        "count": 12,
+        "avg_prob": 0.18499999999999997,
+        "buckets": {
+          "0.2..0.3": 5,
+          "0.1..0.2": 7
+        }
+      },
+      "root_cause": {
+        "type": "choice",
+        "count": 12,
+        "counts": {
+          "reasoning": 8,
+          "other": 2,
+          "tool": 2
+        }
+      }
+    },
+    "itemsPerSec": 16.666666666666668,
+    "secPerBatch": 0.72,
+    "costPer1000": 14.3643175
+  },
+  "paidRuns": [
+    {
+      "label": "model/gemini",
+      "alias": "gemini",
+      "runId": "run_20261122_193345_448b",
+      "costRub": 0.44081866,
+      "inputTokens": 37612,
+      "outputTokens": 0,
+      "batches": 1,
+      "durationMs": 2344
+    },
+    {
+      "label": "model/ms",
+      "alias": "ms",
+      "runId": "run_20261122_193348_c826",
+      "costRub": 0.16906706,
+      "inputTokens": 34346,
+      "outputTokens": 200,
+      "batches": 2,
+      "durationMs": 2624
+    },
+    {
+      "label": "model/jev",
+      "alias": "jev",
+      "runId": "run_20261122_193351_cbf7",
+      "costRub": 0.69712732,
+      "inputTokens": 40787,
+      "outputTokens": 4508,
+      "batches": 2,
+      "durationMs": 1352
+    },
+    {
+      "label": "model/luna",
+      "alias": "luna",
+      "runId": "run_20261122_193352_767f",
+      "costRub": 0.58563295,
+      "inputTokens": 49968,
+      "outputTokens": 0,
+      "batches": 1,
+      "durationMs": 1622
+    },
+    {
+      "label": "concurrency/1",
+      "alias": "ms",
+      "runId": "run_20261122_193354_9073",
+      "costRub": 0.16906706,
+      "inputTokens": 34346,
+      "outputTokens": 200,
+      "batches": 2,
+      "durationMs": 4079
+    },
+    {
+      "label": "concurrency/4",
+      "alias": "ms",
+      "runId": "run_20261122_193359_7266",
+      "costRub": 0.16906706,
+      "inputTokens": 34346,
+      "outputTokens": 200,
+      "batches": 2,
+      "durationMs": 2215
+    },
+    {
+      "label": "deep/jev",
+      "alias": "jev",
+      "runId": "run_20261122_193401_479c",
+      "costRub": 0.17237181,
+      "inputTokens": 10085,
+      "outputTokens": 1879,
+      "batches": 1,
+      "durationMs": 720
+    }
+  ],
+  "totalCostRub": 2.40315192,
+  "dataNote": "Все платные прогоны L10 (финальные 7 и отброшенные 9) шли на копиях до финальной правки маркеров: в Polza (третьей стороне) уходили пути и фрагменты приватных указаний. Опубликованные fixtures строже; метрики не пересчитывались.",
+  "rejectedAttempts": [
+    {
+      "id": "attempt-200",
+      "items": 200,
+      "questionsPerItem": 2,
+      "requestedQuestions": 400,
+      "costRub": 2.42108824,
+      "paidCalls": 4,
+      "reason": "HTTP 400 по лимиту вопросов; выборка уменьшена до 120, затем до 100 шагов",
+      "runs": [
+        {
+          "label": "model/gemini",
+          "alias": "gemini",
+          "runId": "run_20261122_193205_782b",
+          "status": "failed",
+          "httpStatus": 400,
+          "errorCode": "BAD_REQUEST",
+          "traceId": "55d9f911-09d5-4213-ba1f-28168ce0a01c",
+          "error": "BAD_REQUEST: questions должен быть непустым объектом (до 256 вопросов и 400 000 символов): у каждого вопроса type — noul, choice или score — и непустые instructions",
+          "costRub": 0,
+          "usage": {
+            "inputTokens": 0,
+            "outputTokens": 0
+          },
+          "batches": 1,
+          "durationMs": 790
+        },
+        {
+          "label": "model/ms",
+          "alias": "ms",
+          "runId": "run_20261122_193207_c803",
+          "status": "completed",
+          "costRub": 0.34123526,
+          "usage": {
+            "inputTokens": 69322,
+            "outputTokens": 400
+          },
+          "batches": 4,
+          "durationMs": 3254
+        },
+        {
+          "label": "model/jev",
+          "alias": "jev",
+          "runId": "run_20261122_193211_35e7",
+          "status": "completed",
+          "costRub": 1.39738246,
+          "usage": {
+            "inputTokens": 81757,
+            "outputTokens": 9012
+          },
+          "batches": 3,
+          "durationMs": 1481
+        },
+        {
+          "label": "model/luna",
+          "alias": "luna",
+          "runId": "run_20261122_193214_7fd1",
+          "status": "failed",
+          "httpStatus": 400,
+          "errorCode": "BAD_REQUEST",
+          "traceId": "0a854782-7d1b-45d3-b8ac-f8e8b6d41879",
+          "error": "BAD_REQUEST: questions должен быть непустым объектом (до 256 вопросов и 400 000 символов): у каждого вопроса type — noul, choice или score — и непустые instructions",
+          "costRub": 0,
+          "usage": {
+            "inputTokens": 0,
+            "outputTokens": 0
+          },
+          "batches": 1,
+          "durationMs": 386
+        },
+        {
+          "label": "concurrency/1",
+          "alias": "ms",
+          "runId": null,
+          "status": "completed",
+          "costRub": 0.34123526,
+          "usage": {
+            "inputTokens": 69322,
+            "outputTokens": 400
+          },
+          "usageSource": "derived from model/ms: same 200 items/rubric/batches, cost matches exactly",
+          "batches": 4,
+          "durationMs": 9820
+        },
+        {
+          "label": "concurrency/4",
+          "alias": "ms",
+          "runId": null,
+          "status": "completed",
+          "costRub": 0.34123526,
+          "usage": {
+            "inputTokens": 69322,
+            "outputTokens": 400
+          },
+          "usageSource": "derived from model/ms: same 200 items/rubric/batches, cost matches exactly",
+          "batches": 4,
+          "durationMs": 3404
+        }
+      ]
+    },
+    {
+      "id": "attempt-120",
+      "items": 120,
+      "questionsPerItem": 2,
+      "requestedQuestions": 240,
+      "costRub": 1.98139649,
+      "paidCalls": 5,
+      "reason": "HTTP 400 по лимиту вопросов luna; выборка уменьшена до 100 шагов",
+      "runs": [
+        {
+          "label": "model/gemini",
+          "alias": "gemini",
+          "runId": "run_20261122_193303_3229",
+          "status": "completed",
+          "costRub": 0.52975123,
+          "usage": {
+            "inputTokens": 45200,
+            "outputTokens": 0
+          },
+          "batches": 1,
+          "durationMs": 1885
+        },
+        {
+          "label": "model/ms",
+          "alias": "ms",
+          "runId": "run_20261122_193306_77e4",
+          "status": "completed",
+          "costRub": 0.20360308,
+          "usage": {
+            "inputTokens": 41362,
+            "outputTokens": 240
+          },
+          "batches": 3,
+          "durationMs": 2625
+        },
+        {
+          "label": "model/jev",
+          "alias": "jev",
+          "runId": "run_20261122_193309_bbee",
+          "status": "completed",
+          "costRub": 0.84083602,
+          "usage": {
+            "inputTokens": 49195,
+            "outputTokens": 5408
+          },
+          "batches": 2,
+          "durationMs": 1513
+        },
+        {
+          "label": "model/luna",
+          "alias": "luna",
+          "runId": "run_20261122_193311_3fc6",
+          "status": "failed",
+          "httpStatus": 400,
+          "errorCode": "BAD_REQUEST",
+          "traceId": "16aba268-1369-4d25-9052-bcd715f42026",
+          "error": "BAD_REQUEST: Некорректный запрос.: OpenAI Decisions accepts at most 200 questions, got 240",
+          "costRub": 0,
+          "usage": {
+            "inputTokens": 0,
+            "outputTokens": 0
+          },
+          "batches": 1,
+          "durationMs": 1394
+        },
+        {
+          "label": "concurrency/1",
+          "alias": "ms",
+          "runId": null,
+          "status": "completed",
+          "costRub": 0.20360308,
+          "usage": {
+            "inputTokens": 41362,
+            "outputTokens": 240
+          },
+          "usageSource": "derived from model/ms: same 120 items/rubric/batches, cost matches exactly",
+          "batches": 3,
+          "durationMs": 5195
+        },
+        {
+          "label": "concurrency/4",
+          "alias": "ms",
+          "runId": null,
+          "status": "completed",
+          "costRub": 0.20360308,
+          "usage": {
+            "inputTokens": 41362,
+            "outputTokens": 240
+          },
+          "usageSource": "derived from model/ms: same 120 items/rubric/batches, cost matches exactly",
+          "batches": 3,
+          "durationMs": 2206
+        }
+      ]
+    }
+  ],
+  "rejectedTotalRub": 4.40248473,
+  "lotTotalRub": 6.80563665
+}
