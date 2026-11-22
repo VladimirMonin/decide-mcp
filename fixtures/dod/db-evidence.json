@@ -1,0 +1,471 @@
+{
+  "runs": [
+    {
+      "runId": "run_20261122_185840_0555",
+      "status": "completed",
+      "provider": "polza",
+      "modelAlias": "gemini",
+      "responseModel": "google/gemini-decision-1-20261111",
+      "parentRunId": null,
+      "itemsTotal": 1,
+      "itemsProcessed": 1,
+      "itemsSkipped": 0,
+      "itemsBlocked": 0,
+      "batchesTotal": 1,
+      "inputTokens": 255,
+      "outputTokens": 0,
+      "costRub": 0.00298864,
+      "durationMs": 1212,
+      "answerCount": 3,
+      "answersWithoutProbabilities": 1,
+      "itemStatuses": {
+        "ok": 1
+      }
+    },
+    {
+      "runId": "run_20261122_185841_9c56",
+      "status": "completed",
+      "provider": "polza",
+      "modelAlias": "ms",
+      "responseModel": "microsoft/microsoft-decision-1-20261009",
+      "parentRunId": null,
+      "itemsTotal": 1,
+      "itemsProcessed": 1,
+      "itemsSkipped": 0,
+      "itemsBlocked": 0,
+      "batchesTotal": 1,
+      "inputTokens": 148,
+      "outputTokens": 3,
+      "costRub": 0.00072853,
+      "durationMs": 875,
+      "answerCount": 3,
+      "answersWithoutProbabilities": 1,
+      "itemStatuses": {
+        "ok": 1
+      }
+    },
+    {
+      "runId": "run_20261122_185842_516a",
+      "status": "completed",
+      "provider": "polza",
+      "modelAlias": "jev",
+      "responseModel": "jev-1.14.0",
+      "parentRunId": null,
+      "itemsTotal": 1,
+      "itemsProcessed": 1,
+      "itemsSkipped": 0,
+      "itemsBlocked": 0,
+      "batchesTotal": 1,
+      "inputTokens": 512,
+      "outputTokens": 75,
+      "costRub": 0.00875105,
+      "durationMs": 815,
+      "answerCount": 3,
+      "answersWithoutProbabilities": 1,
+      "itemStatuses": {
+        "ok": 1
+      }
+    },
+    {
+      "runId": "run_20261122_185843_3e1e",
+      "status": "completed",
+      "provider": "polza",
+      "modelAlias": "luna",
+      "responseModel": "openai/gpt-6-luna-decisions-20261006",
+      "parentRunId": null,
+      "itemsTotal": 1,
+      "itemsProcessed": 1,
+      "itemsSkipped": 0,
+      "itemsBlocked": 0,
+      "batchesTotal": 1,
+      "inputTokens": 439,
+      "outputTokens": 0,
+      "costRub": 0.00514515,
+      "durationMs": 782,
+      "answerCount": 3,
+      "answersWithoutProbabilities": 1,
+      "itemStatuses": {
+        "ok": 1
+      }
+    },
+    {
+      "runId": "run_20261122_185844_bb3e",
+      "status": "completed",
+      "provider": "polza",
+      "modelAlias": "ms",
+      "responseModel": "microsoft/microsoft-decision-1-20261009",
+      "parentRunId": null,
+      "itemsTotal": 320,
+      "itemsProcessed": 320,
+      "itemsSkipped": 0,
+      "itemsBlocked": 0,
+      "batchesTotal": 4,
+      "inputTokens": 66660,
+      "outputTokens": 320,
+      "costRub": 0.32813167,
+      "durationMs": 2766,
+      "answerCount": 320,
+      "answersWithoutProbabilities": 0,
+      "itemStatuses": {
+        "ok": 320
+      }
+    },
+    {
+      "runId": "run_20261122_185847_04db",
+      "status": "completed",
+      "provider": "polza",
+      "modelAlias": "ms",
+      "responseModel": "microsoft/microsoft-decision-1-20261009",
+      "parentRunId": null,
+      "itemsTotal": 12,
+      "itemsProcessed": 12,
+      "itemsSkipped": 0,
+      "itemsBlocked": 0,
+      "batchesTotal": 1,
+      "inputTokens": 2681,
+      "outputTokens": 12,
+      "costRub": 0.01319713,
+      "durationMs": 1519,
+      "answerCount": 12,
+      "answersWithoutProbabilities": 0,
+      "itemStatuses": {
+        "ok": 12
+      }
+    },
+    {
+      "runId": "run_20261122_185849_d039",
+      "status": "completed",
+      "provider": "polza",
+      "modelAlias": "ms",
+      "responseModel": "microsoft/microsoft-decision-1-20261009",
+      "parentRunId": "run_20261122_185847_04db",
+      "itemsTotal": 6,
+      "itemsProcessed": 6,
+      "itemsSkipped": 0,
+      "itemsBlocked": 0,
+      "batchesTotal": 1,
+      "inputTokens": 14458,
+      "outputTokens": 6,
+      "costRub": 0.07116903,
+      "durationMs": 1305,
+      "answerCount": 6,
+      "answersWithoutProbabilities": 0,
+      "itemStatuses": {
+        "ok": 6
+      }
+    }
+  ],
+  "answers": {
+    "run_20261122_185840_0555": {
+      "total": 3,
+      "confidenceSources": {
+        "provider": 3
+      },
+      "sample": [
+        {
+          "itemId": "snippet",
+          "questionId": "has_error",
+          "type": "bool",
+          "prob": 0.023774705832114672,
+          "score": null,
+          "choice": null,
+          "confidence": 0.9762252941678853,
+          "confidenceSource": "provider",
+          "probabilities": null,
+          "status": "ok"
+        },
+        {
+          "itemId": "snippet",
+          "questionId": "language",
+          "type": "choice",
+          "prob": null,
+          "score": null,
+          "choice": "js",
+          "confidence": 0.9944269981923198,
+          "confidenceSource": "provider",
+          "probabilities": "{\"js\":0.9944269981923198,\"other\":0.0007532981513441809,\"python\":0.0048197036563361155}",
+          "status": "ok"
+        },
+        {
+          "itemId": "snippet",
+          "questionId": "quality",
+          "type": "score",
+          "prob": null,
+          "score": 1.9070372162182745,
+          "choice": null,
+          "confidence": 0.9187989793014422,
+          "confidenceSource": "provider",
+          "probabilities": "[0.011761763083167677,0.06943925761539026,0.9187989793014422]",
+          "status": "ok"
+        }
+      ]
+    },
+    "run_20261122_185841_9c56": {
+      "total": 3,
+      "confidenceSources": {
+        "max_prob": 1,
+        "provider": 2
+      },
+      "sample": [
+        {
+          "itemId": "snippet",
+          "questionId": "has_error",
+          "type": "bool",
+          "prob": 0.0085775434850696,
+          "score": null,
+          "choice": null,
+          "confidence": 0.9914224565149304,
+          "confidenceSource": "max_prob",
+          "probabilities": null,
+          "status": "ok"
+        },
+        {
+          "itemId": "snippet",
+          "questionId": "language",
+          "type": "choice",
+          "prob": null,
+          "score": null,
+          "choice": "js",
+          "confidence": 0.9390135022058048,
+          "confidenceSource": "provider",
+          "probabilities": "{\"js\":0.9593423348038699,\"other\":0.037197736715724364,\"python\":0.0034599284804058446}",
+          "status": "ok"
+        },
+        {
+          "itemId": "snippet",
+          "questionId": "quality",
+          "type": "score",
+          "prob": null,
+          "score": 1.9524997323850788,
+          "choice": null,
+          "confidence": 0.939742167396477,
+          "confidenceSource": "provider",
+          "probabilities": "[0.0073283792125726915,0.03284350918977598,0.9598281115976514]",
+          "status": "ok"
+        }
+      ]
+    },
+    "run_20261122_185842_516a": {
+      "total": 3,
+      "confidenceSources": {
+        "max_prob": 1,
+        "provider": 2
+      },
+      "sample": [
+        {
+          "itemId": "snippet",
+          "questionId": "has_error",
+          "type": "bool",
+          "prob": 0.06,
+          "score": null,
+          "choice": null,
+          "confidence": 0.94,
+          "confidenceSource": "max_prob",
+          "probabilities": null,
+          "status": "ok"
+        },
+        {
+          "itemId": "snippet",
+          "questionId": "language",
+          "type": "choice",
+          "prob": null,
+          "score": null,
+          "choice": "js",
+          "confidence": 1,
+          "confidenceSource": "provider",
+          "probabilities": "{\"js\":1,\"other\":0,\"python\":0}",
+          "status": "ok"
+        },
+        {
+          "itemId": "snippet",
+          "questionId": "quality",
+          "type": "score",
+          "prob": null,
+          "score": 1.99,
+          "choice": null,
+          "confidence": 0.98,
+          "confidenceSource": "provider",
+          "probabilities": "[0,0.01,0.99]",
+          "status": "ok"
+        }
+      ]
+    },
+    "run_20261122_185843_3e1e": {
+      "total": 3,
+      "confidenceSources": {
+        "max_prob": 1,
+        "provider": 2
+      },
+      "sample": [
+        {
+          "itemId": "snippet",
+          "questionId": "has_error",
+          "type": "bool",
+          "prob": 0,
+          "score": null,
+          "choice": null,
+          "confidence": 1,
+          "confidenceSource": "max_prob",
+          "probabilities": null,
+          "status": "ok"
+        },
+        {
+          "itemId": "snippet",
+          "questionId": "language",
+          "type": "choice",
+          "prob": null,
+          "score": null,
+          "choice": "js",
+          "confidence": 1,
+          "confidenceSource": "provider",
+          "probabilities": "{\"js\":1,\"other\":0,\"python\":0}",
+          "status": "ok"
+        },
+        {
+          "itemId": "snippet",
+          "questionId": "quality",
+          "type": "score",
+          "prob": null,
+          "score": 1.99,
+          "choice": null,
+          "confidence": 0.99,
+          "confidenceSource": "provider",
+          "probabilities": "[0,0.01,0.99]",
+          "status": "ok"
+        }
+      ]
+    },
+    "run_20261122_185844_bb3e": {
+      "total": 320,
+      "confidenceSources": {
+        "provider": 320
+      },
+      "sample": [
+        {
+          "itemId": "step_001",
+          "questionId": "severity",
+          "type": "score",
+          "prob": null,
+          "score": 2.8807562692407735,
+          "choice": null,
+          "confidence": 0.8410393375301813,
+          "confidenceSource": "provider",
+          "probabilities": "[0.0000032823582130672494,0.000016669190436085113,0.11920054530371484,0.880779503147636]",
+          "status": "ok"
+        },
+        {
+          "itemId": "step_002",
+          "questionId": "severity",
+          "type": "score",
+          "prob": null,
+          "score": 0.0005890011211449963,
+          "choice": null,
+          "confidence": 0.999495301091161,
+          "confidenceSource": "provider",
+          "probabilities": "[0.9996214758183708,0.00020339136097334803,0.00013978870179568665,0.000035344118860091656]",
+          "status": "ok"
+        },
+        {
+          "itemId": "step_003",
+          "questionId": "severity",
+          "type": "score",
+          "prob": null,
+          "score": 0.00031979162830277167,
+          "choice": null,
+          "confidence": 0.999718843644663,
+          "confidenceSource": "provider",
+          "probabilities": "[0.9997891327334972,0.00012338379296364697,0.00006604258527781302,0.000021440888261166218]",
+          "status": "ok"
+        }
+      ]
+    },
+    "run_20261122_185847_04db": {
+      "total": 12,
+      "confidenceSources": {
+        "provider": 12
+      },
+      "sample": [
+        {
+          "itemId": "step_001",
+          "questionId": "problem_score",
+          "type": "score",
+          "prob": null,
+          "score": 0.181841555207124,
+          "choice": null,
+          "confidence": 0.7706491435470361,
+          "confidenceSource": "provider",
+          "probabilities": "[0.827986857660277,0.1630402864774103,0.008117298857224323,0.0008555570050883512]",
+          "status": "ok"
+        },
+        {
+          "itemId": "step_002",
+          "questionId": "problem_score",
+          "type": "score",
+          "prob": null,
+          "score": 2.3150179505931203,
+          "choice": null,
+          "confidence": 0.5685887916279097,
+          "confidenceSource": "provider",
+          "probabilities": "[0.00048039159562592894,0.0035496404495347967,0.6764415937209323,0.319528374233907]",
+          "status": "ok"
+        },
+        {
+          "itemId": "step_003",
+          "questionId": "problem_score",
+          "type": "score",
+          "prob": null,
+          "score": 0.8574700110285203,
+          "choice": null,
+          "confidence": 0.7976088931317679,
+          "confidenceSource": "provider",
+          "probabilities": "[0.14739622446972478,0.8482066698488259,0.003927975864653758,0.00046912981679563285]",
+          "status": "ok"
+        }
+      ]
+    },
+    "run_20261122_185849_d039": {
+      "total": 6,
+      "confidenceSources": {
+        "provider": 6
+      },
+      "sample": [
+        {
+          "itemId": "step_002",
+          "questionId": "root_cause",
+          "type": "choice",
+          "prob": null,
+          "score": null,
+          "choice": "permissions",
+          "confidence": 0.9998761603896069,
+          "confidenceSource": "provider",
+          "probabilities": "{\"other\":0.00006605039605599554,\"permissions\":0.9999071202922052,\"reasoning\":0.00001670015544154133,\"tool\":0.000010129156297261589}",
+          "status": "ok"
+        },
+        {
+          "itemId": "step_004",
+          "questionId": "root_cause",
+          "type": "choice",
+          "prob": null,
+          "score": null,
+          "choice": "permissions",
+          "confidence": 0.999936700091672,
+          "confidenceSource": "provider",
+          "probabilities": "{\"other\":0.000031201399874001175,\"permissions\":0.999952525068754,\"reasoning\":0.000010129611454128983,\"tool\":0.0000061439199179055}",
+          "status": "ok"
+        },
+        {
+          "itemId": "step_006",
+          "questionId": "root_cause",
+          "type": "choice",
+          "prob": null,
+          "score": null,
+          "choice": "permissions",
+          "confidence": 0.9999327480731367,
+          "confidenceSource": "provider",
+          "probabilities": "{\"other\":0.00003535571741021724,\"permissions\":0.9999495610548526,\"reasoning\":0.000008939325299386165,\"tool\":0.000006143902437893008}",
+          "status": "ok"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,607 @@
+{
+  "generatedAt": "2026-11-22T18:58:50.490Z",
+  "provider": "polza",
+  "model": "jev",
+  "criteria": {
+    "c1": {
+      "status": "partial",
+      "method": "живой прогон polza",
+      "note": "OpenRouter NOT RUN: ключ не задан, решение владельца"
+    },
+    "c2": {
+      "status": "confirmed",
+      "method": "живой прогон 4 моделей",
+      "models": [
+        {
+          "alias": "gemini",
+          "runId": "run_20261122_185840_0555",
+          "status": "completed",
+          "stats": {
+            "items_total": 1,
+            "items_processed": 1,
+            "items_skipped": 0,
+            "items_blocked": 0,
+            "batches_total": 1,
+            "input_tokens": 255,
+            "output_tokens": 0,
+            "cost_rub": 0.00298864,
+            "cost_usd": null,
+            "duration_ms": 1214
+          },
+          "answers": {
+            "has_error": {
+              "type": "bool",
+              "status": "ok",
+              "confidence": 0.9762252941678853,
+              "confidenceSource": "provider",
+              "prob": 0.023774705832114672
+            },
+            "language": {
+              "type": "choice",
+              "status": "ok",
+              "confidence": 0.9944269981923198,
+              "confidenceSource": "provider",
+              "choice": "js",
+              "probabilities": {
+                "js": 0.9944269981923198,
+                "other": 0.0007532981513441809,
+                "python": 0.0048197036563361155
+              }
+            },
+            "quality": {
+              "type": "score",
+              "status": "ok",
+              "confidence": 0.9187989793014422,
+              "confidenceSource": "provider",
+              "score": 1.9070372162182745,
+              "probabilities": [
+                0.011761763083167677,
+                0.06943925761539026,
+                0.9187989793014422
+              ]
+            }
+          },
+          "summary": {
+            "has_error": {
+              "type": "bool",
+              "count": 1,
+              "avg_prob": 0.023774705832114672,
+              "buckets": {
+                "0.0..0.1": 1
+              }
+            },
+            "language": {
+              "type": "choice",
+              "count": 1,
+              "counts": {
+                "js": 1
+              }
+            },
+            "quality": {
+              "type": "score",
+              "count": 1,
+              "min": 1.9070372162182745,
+              "avg": 1.9070372162182745,
+              "max": 1.9070372162182745,
+              "buckets": {
+                "2": 1
+              }
+            }
+          },
+          "answersTotal": 3,
+          "answersWithConfidence": 3,
+          "primitiveTypes": [
+            "bool",
+            "choice",
+            "score"
+          ]
+        },
+        {
+          "alias": "ms",
+          "runId": "run_20261122_185841_9c56",
+          "status": "completed",
+          "stats": {
+            "items_total": 1,
+            "items_processed": 1,
+            "items_skipped": 0,
+            "items_blocked": 0,
+            "batches_total": 1,
+            "input_tokens": 148,
+            "output_tokens": 3,
+            "cost_rub": 0.00072853,
+            "cost_usd": null,
+            "duration_ms": 876
+          },
+          "answers": {
+            "has_error": {
+              "type": "bool",
+              "status": "ok",
+              "confidence": 0.9914224565149304,
+              "confidenceSource": "max_prob",
+              "prob": 0.0085775434850696
+            },
+            "language": {
+              "type": "choice",
+              "status": "ok",
+              "confidence": 0.9390135022058048,
+              "confidenceSource": "provider",
+              "choice": "js",
+              "probabilities": {
+                "js": 0.9593423348038699,
+                "other": 0.037197736715724364,
+                "python": 0.0034599284804058446
+              }
+            },
+            "quality": {
+              "type": "score",
+              "status": "ok",
+              "confidence": 0.939742167396477,
+              "confidenceSource": "provider",
+              "score": 1.9524997323850788,
+              "probabilities": [
+                0.0073283792125726915,
+                0.03284350918977598,
+                0.9598281115976514
+              ]
+            }
+          },
+          "summary": {
+            "has_error": {
+              "type": "bool",
+              "count": 1,
+              "avg_prob": 0.0085775434850696,
+              "buckets": {
+                "0.0..0.1": 1
+              }
+            },
+            "language": {
+              "type": "choice",
+              "count": 1,
+              "counts": {
+                "js": 1
+              }
+            },
+            "quality": {
+              "type": "score",
+              "count": 1,
+              "min": 1.9524997323850788,
+              "avg": 1.9524997323850788,
+              "max": 1.9524997323850788,
+              "buckets": {
+                "2": 1
+              }
+            }
+          },
+          "answersTotal": 3,
+          "answersWithConfidence": 3,
+          "primitiveTypes": [
+            "bool",
+            "choice",
+            "score"
+          ]
+        },
+        {
+          "alias": "jev",
+          "runId": "run_20261122_185842_516a",
+          "status": "completed",
+          "stats": {
+            "items_total": 1,
+            "items_processed": 1,
+            "items_skipped": 0,
+            "items_blocked": 0,
+            "batches_total": 1,
+            "input_tokens": 512,
+            "output_tokens": 75,
+            "cost_rub": 0.00875105,
+            "cost_usd": null,
+            "duration_ms": 816
+          },
+          "answers": {
+            "has_error": {
+              "type": "bool",
+              "status": "ok",
+              "confidence": 0.94,
+              "confidenceSource": "max_prob",
+              "prob": 0.06
+            },
+            "language": {
+              "type": "choice",
+              "status": "ok",
+              "confidence": 1,
+              "confidenceSource": "provider",
+              "choice": "js",
+              "probabilities": {
+                "js": 1,
+                "other": 0,
+                "python": 0
+              }
+            },
+            "quality": {
+              "type": "score",
+              "status": "ok",
+              "confidence": 0.98,
+              "confidenceSource": "provider",
+              "score": 1.99,
+              "probabilities": [
+                0,
+                0.01,
+                0.99
+              ]
+            }
+          },
+          "summary": {
+            "has_error": {
+              "type": "bool",
+              "count": 1,
+              "avg_prob": 0.06,
+              "buckets": {
+                "0.0..0.1": 1
+              }
+            },
+            "language": {
+              "type": "choice",
+              "count": 1,
+              "counts": {
+                "js": 1
+              }
+            },
+            "quality": {
+              "type": "score",
+              "count": 1,
+              "min": 1.99,
+              "avg": 1.99,
+              "max": 1.99,
+              "buckets": {
+                "2": 1
+              }
+            }
+          },
+          "answersTotal": 3,
+          "answersWithConfidence": 3,
+          "primitiveTypes": [
+            "bool",
+            "choice",
+            "score"
+          ]
+        },
+        {
+          "alias": "luna",
+          "runId": "run_20261122_185843_3e1e",
+          "status": "completed",
+          "stats": {
+            "items_total": 1,
+            "items_processed": 1,
+            "items_skipped": 0,
+            "items_blocked": 0,
+            "batches_total": 1,
+            "input_tokens": 439,
+            "output_tokens": 0,
+            "cost_rub": 0.00514515,
+            "cost_usd": null,
+            "duration_ms": 784
+          },
+          "answers": {
+            "has_error": {
+              "type": "bool",
+              "status": "ok",
+              "confidence": 1,
+              "confidenceSource": "max_prob",
+              "prob": 0
+            },
+            "language": {
+              "type": "choice",
+              "status": "ok",
+              "confidence": 1,
+              "confidenceSource": "provider",
+              "choice": "js",
+              "probabilities": {
+                "js": 1,
+                "other": 0,
+                "python": 0
+              }
+            },
+            "quality": {
+              "type": "score",
+              "status": "ok",
+              "confidence": 0.99,
+              "confidenceSource": "provider",
+              "score": 1.99,
+              "probabilities": [
+                0,
+                0.01,
+                0.99
+              ]
+            }
+          },
+          "summary": {
+            "has_error": {
+              "type": "bool",
+              "count": 1,
+              "avg_prob": 0,
+              "buckets": {
+                "0.0..0.1": 1
+              }
+            },
+            "language": {
+              "type": "choice",
+              "count": 1,
+              "counts": {
+                "js": 1
+              }
+            },
+            "quality": {
+              "type": "score",
+              "count": 1,
+              "min": 1.99,
+              "avg": 1.99,
+              "max": 1.99,
+              "buckets": {
+                "2": 1
+              }
+            }
+          },
+          "answersTotal": 3,
+          "answersWithConfidence": 3,
+          "primitiveTypes": [
+            "bool",
+            "choice",
+            "score"
+          ]
+        }
+      ]
+    },
+    "c3": {
+      "status": "confirmed",
+      "method": "dry_run + счётчик вызовов + проверка отсутствия файла БД",
+      "plan": {
+        "batches": 1,
+        "estimated_tokens": 9356,
+        "questions_per_item": 3,
+        "items_skipped": 0
+      },
+      "providerCalls": 0,
+      "dbCreated": false
+    },
+    "c4": {
+      "status": "confirmed",
+      "method": "живой прогон ms на 320 синтетических записях",
+      "runId": "run_20261122_185844_bb3e",
+      "stats": {
+        "items_total": 320,
+        "items_processed": 320,
+        "items_skipped": 0,
+        "items_blocked": 0,
+        "batches_total": 4,
+        "input_tokens": 66660,
+        "output_tokens": 320,
+        "cost_rub": 0.32813167,
+        "cost_usd": null,
+        "duration_ms": 2770
+      },
+      "sourceBytes": 216420,
+      "outputBytes": 3918,
+      "topItems": 5,
+      "answersWithoutProbabilities": 0,
+      "compact": true
+    },
+    "c5": {
+      "status": "confirmed",
+      "method": "офлайн-симуляция стаба (не живой прогон)",
+      "runId": "run_20261122_185850_ca90",
+      "stats": {
+        "items_total": 4,
+        "items_processed": 3,
+        "items_skipped": 0,
+        "items_blocked": 1,
+        "batches_total": 5,
+        "input_tokens": 20,
+        "output_tokens": 2,
+        "cost_rub": 0,
+        "cost_usd": null,
+        "duration_ms": 6
+      },
+      "providerCalls": 5,
+      "itemStatuses": [
+        [
+          "ok1",
+          "ok"
+        ],
+        [
+          "toxic",
+          "safety_blocked"
+        ],
+        [
+          "ok2",
+          "ok"
+        ],
+        [
+          "ok3",
+          "ok"
+        ]
+      ],
+      "evidenceFile": "fixtures/dod/safety-evidence.json"
+    },
+    "c6": {
+      "status": "confirmed",
+      "method": "живой прогон двух этапов + inspect",
+      "stage1": {
+        "runId": "run_20261122_185847_04db",
+        "stats": {
+          "items_total": 12,
+          "items_processed": 12,
+          "items_skipped": 0,
+          "items_blocked": 0,
+          "batches_total": 1,
+          "input_tokens": 2681,
+          "output_tokens": 12,
+          "cost_rub": 0.01319713,
+          "cost_usd": null,
+          "duration_ms": 1520
+        },
+        "summary": {
+          "problem_score": {
+            "type": "score",
+            "count": 12,
+            "min": 0.181841555207124,
+            "avg": 1.5905470773231472,
+            "max": 2.6729551508475016,
+            "buckets": {
+              "0": 1,
+              "1": 5,
+              "2": 2,
+              "3": 4
+            }
+          }
+        }
+      },
+      "selectedTargets": 6,
+      "targetIds": [
+        "step_002",
+        "step_004",
+        "step_006",
+        "step_008",
+        "step_010",
+        "step_012"
+      ],
+      "stage2": {
+        "runId": "run_20261122_185849_d039",
+        "stats": {
+          "items_total": 6,
+          "items_processed": 6,
+          "items_skipped": 0,
+          "items_blocked": 0,
+          "batches_total": 1,
+          "input_tokens": 14458,
+          "output_tokens": 6,
+          "cost_rub": 0.07116903,
+          "cost_usd": null,
+          "duration_ms": 1307
+        },
+        "summary": {
+          "root_cause": {
+            "type": "choice",
+            "count": 6,
+            "counts": {
+              "permissions": 6
+            }
+          }
+        }
+      },
+      "inspect": [
+        {
+          "itemId": "step_002",
+          "target": true,
+          "markers": 12,
+          "hasTargetMarker": true,
+          "truncated": false
+        },
+        {
+          "itemId": "step_004",
+          "target": true,
+          "markers": 12,
+          "hasTargetMarker": true,
+          "truncated": false
+        },
+        {
+          "itemId": "step_006",
+          "target": true,
+          "markers": 12,
+          "hasTargetMarker": true,
+          "truncated": false
+        },
+        {
+          "itemId": "step_008",
+          "target": false,
+          "markers": 12,
+          "hasTargetMarker": true,
+          "truncated": false
+        }
+      ],
+      "source": {
+        "context_window": 2,
+        "projection": "full",
+        "where": {
+          "conditions": [
+            {
+              "question_id": "problem_score",
+              "field": "score",
+              "op": ">=",
+              "value": 1.5
+            }
+          ]
+        }
+      },
+      "inspectHasTargetMarker": true
+    },
+    "c7": {
+      "status": "confirmed",
+      "method": "живой отказ пути + glob dry_run + readSource",
+      "pathErrorCode": "path_outside_root",
+      "pathErrorMessage": "Путь \"../outside-dod-check.txt\" вне DECIDE_ALLOWED_ROOT: C:\\PY\\outside-dod-check.txt (корень C:\\PY\\decide-core)",
+      "globIds": [
+        "fixtures/dod/glob-tree/src/ok.ts"
+      ],
+      "globDryItems": 1
+    }
+  },
+  "paidRuns": [
+    {
+      "label": "models/gemini",
+      "alias": "gemini",
+      "runId": "run_20261122_185840_0555",
+      "costRub": 0.00298864,
+      "inputTokens": 255,
+      "outputTokens": 0
+    },
+    {
+      "label": "models/ms",
+      "alias": "ms",
+      "runId": "run_20261122_185841_9c56",
+      "costRub": 0.00072853,
+      "inputTokens": 148,
+      "outputTokens": 3
+    },
+    {
+      "label": "models/jev",
+      "alias": "jev",
+      "runId": "run_20261122_185842_516a",
+      "costRub": 0.00875105,
+      "inputTokens": 512,
+      "outputTokens": 75
+    },
+    {
+      "label": "models/luna",
+      "alias": "luna",
+      "runId": "run_20261122_185843_3e1e",
+      "costRub": 0.00514515,
+      "inputTokens": 439,
+      "outputTokens": 0
+    },
+    {
+      "label": "batching/ms",
+      "alias": "ms",
+      "runId": "run_20261122_185844_bb3e",
+      "costRub": 0.32813167,
+      "inputTokens": 66660,
+      "outputTokens": 320
+    },
+    {
+      "label": "funnel/stage1",
+      "alias": "ms",
+      "runId": "run_20261122_185847_04db",
+      "costRub": 0.01319713,
+      "inputTokens": 2681,
+      "outputTokens": 12
+    },
+    {
+      "label": "funnel/stage2",
+      "alias": "ms",
+      "runId": "run_20261122_185849_d039",
+      "costRub": 0.07116903,
+      "inputTokens": 14458,
+      "outputTokens": 6
+    }
+  ],
+  "paidBatches": 10,
+  "totalCostRub": 0.4301112
+}

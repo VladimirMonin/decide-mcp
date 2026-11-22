@@ -1,0 +1,39 @@
+{
+  "criterion": 5,
+  "method": "офлайн-симуляция SafetyStubProvider (не живой прогон)",
+  "generatedAt": "2026-11-22T18:58:50.490Z",
+  "runId": "run_20261122_185850_ca90",
+  "status": "partial",
+  "stats": {
+    "items_total": 4,
+    "items_processed": 3,
+    "items_skipped": 0,
+    "items_blocked": 1,
+    "batches_total": 5,
+    "input_tokens": 20,
+    "output_tokens": 2,
+    "cost_rub": 0,
+    "cost_usd": null,
+    "duration_ms": 6
+  },
+  "providerCalls": 5,
+  "itemStatuses": [
+    [
+      "ok1",
+      "ok"
+    ],
+    [
+      "toxic",
+      "safety_blocked"
+    ],
+    [
+      "ok2",
+      "ok"
+    ],
+    [
+      "ok3",
+      "ok"
+    ]
+  ],
+  "note": "Снимок существующего прогона: safety-БД после снятия evidence удалена, ответы не сохранены; itemStatuses — статусы элементов симуляции (ok1/ok2/ok3 — ok, toxic — safety_blocked). При повторном прогоне скрипт пишет answers напрямую из SQLite."
+}

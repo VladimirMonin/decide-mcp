@@ -1,0 +1,867 @@
+[
+  {
+    "label": "models/gemini",
+    "alias": "gemini",
+    "runId": "run_20261122_185840_0555",
+    "status": "completed",
+    "stats": {
+      "items_total": 1,
+      "items_processed": 1,
+      "items_skipped": 0,
+      "items_blocked": 0,
+      "batches_total": 1,
+      "input_tokens": 255,
+      "output_tokens": 0,
+      "cost_rub": 0.00298864,
+      "cost_usd": null,
+      "duration_ms": 1214
+    },
+    "plan": null,
+    "warnings": [],
+    "summary": {
+      "has_error": {
+        "type": "bool",
+        "count": 1,
+        "avg_prob": 0.023774705832114672,
+        "buckets": {
+          "0.0..0.1": 1
+        }
+      },
+      "language": {
+        "type": "choice",
+        "count": 1,
+        "counts": {
+          "js": 1
+        }
+      },
+      "quality": {
+        "type": "score",
+        "count": 1,
+        "min": 1.9070372162182745,
+        "avg": 1.9070372162182745,
+        "max": 1.9070372162182745,
+        "buckets": {
+          "2": 1
+        }
+      }
+    },
+    "topItems": [
+      {
+        "item_id": "snippet",
+        "preview": "function add(a, b) { return a + b; } // простая функция сложения",
+        "answers": {
+          "has_error": {
+            "type": "bool",
+            "status": "ok",
+            "confidence": 0.9762252941678853,
+            "confidenceSource": "provider",
+            "prob": 0.023774705832114672
+          },
+          "language": {
+            "type": "choice",
+            "status": "ok",
+            "confidence": 0.9944269981923198,
+            "confidenceSource": "provider",
+            "choice": "js",
+            "probabilities": {
+              "js": 0.9944269981923198,
+              "other": 0.0007532981513441809,
+              "python": 0.0048197036563361155
+            }
+          },
+          "quality": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.9187989793014422,
+            "confidenceSource": "provider",
+            "score": 1.9070372162182745,
+            "probabilities": [
+              0.011761763083167677,
+              0.06943925761539026,
+              0.9187989793014422
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "label": "models/ms",
+    "alias": "ms",
+    "runId": "run_20261122_185841_9c56",
+    "status": "completed",
+    "stats": {
+      "items_total": 1,
+      "items_processed": 1,
+      "items_skipped": 0,
+      "items_blocked": 0,
+      "batches_total": 1,
+      "input_tokens": 148,
+      "output_tokens": 3,
+      "cost_rub": 0.00072853,
+      "cost_usd": null,
+      "duration_ms": 876
+    },
+    "plan": null,
+    "warnings": [],
+    "summary": {
+      "has_error": {
+        "type": "bool",
+        "count": 1,
+        "avg_prob": 0.0085775434850696,
+        "buckets": {
+          "0.0..0.1": 1
+        }
+      },
+      "language": {
+        "type": "choice",
+        "count": 1,
+        "counts": {
+          "js": 1
+        }
+      },
+      "quality": {
+        "type": "score",
+        "count": 1,
+        "min": 1.9524997323850788,
+        "avg": 1.9524997323850788,
+        "max": 1.9524997323850788,
+        "buckets": {
+          "2": 1
+        }
+      }
+    },
+    "topItems": [
+      {
+        "item_id": "snippet",
+        "preview": "function add(a, b) { return a + b; } // простая функция сложения",
+        "answers": {
+          "has_error": {
+            "type": "bool",
+            "status": "ok",
+            "confidence": 0.9914224565149304,
+            "confidenceSource": "max_prob",
+            "prob": 0.0085775434850696
+          },
+          "language": {
+            "type": "choice",
+            "status": "ok",
+            "confidence": 0.9390135022058048,
+            "confidenceSource": "provider",
+            "choice": "js",
+            "probabilities": {
+              "js": 0.9593423348038699,
+              "other": 0.037197736715724364,
+              "python": 0.0034599284804058446
+            }
+          },
+          "quality": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.939742167396477,
+            "confidenceSource": "provider",
+            "score": 1.9524997323850788,
+            "probabilities": [
+              0.0073283792125726915,
+              0.03284350918977598,
+              0.9598281115976514
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "label": "models/jev",
+    "alias": "jev",
+    "runId": "run_20261122_185842_516a",
+    "status": "completed",
+    "stats": {
+      "items_total": 1,
+      "items_processed": 1,
+      "items_skipped": 0,
+      "items_blocked": 0,
+      "batches_total": 1,
+      "input_tokens": 512,
+      "output_tokens": 75,
+      "cost_rub": 0.00875105,
+      "cost_usd": null,
+      "duration_ms": 816
+    },
+    "plan": null,
+    "warnings": [],
+    "summary": {
+      "has_error": {
+        "type": "bool",
+        "count": 1,
+        "avg_prob": 0.06,
+        "buckets": {
+          "0.0..0.1": 1
+        }
+      },
+      "language": {
+        "type": "choice",
+        "count": 1,
+        "counts": {
+          "js": 1
+        }
+      },
+      "quality": {
+        "type": "score",
+        "count": 1,
+        "min": 1.99,
+        "avg": 1.99,
+        "max": 1.99,
+        "buckets": {
+          "2": 1
+        }
+      }
+    },
+    "topItems": [
+      {
+        "item_id": "snippet",
+        "preview": "function add(a, b) { return a + b; } // простая функция сложения",
+        "answers": {
+          "has_error": {
+            "type": "bool",
+            "status": "ok",
+            "confidence": 0.94,
+            "confidenceSource": "max_prob",
+            "prob": 0.06
+          },
+          "language": {
+            "type": "choice",
+            "status": "ok",
+            "confidence": 1,
+            "confidenceSource": "provider",
+            "choice": "js",
+            "probabilities": {
+              "js": 1,
+              "other": 0,
+              "python": 0
+            }
+          },
+          "quality": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.98,
+            "confidenceSource": "provider",
+            "score": 1.99,
+            "probabilities": [
+              0,
+              0.01,
+              0.99
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "label": "models/luna",
+    "alias": "luna",
+    "runId": "run_20261122_185843_3e1e",
+    "status": "completed",
+    "stats": {
+      "items_total": 1,
+      "items_processed": 1,
+      "items_skipped": 0,
+      "items_blocked": 0,
+      "batches_total": 1,
+      "input_tokens": 439,
+      "output_tokens": 0,
+      "cost_rub": 0.00514515,
+      "cost_usd": null,
+      "duration_ms": 784
+    },
+    "plan": null,
+    "warnings": [],
+    "summary": {
+      "has_error": {
+        "type": "bool",
+        "count": 1,
+        "avg_prob": 0,
+        "buckets": {
+          "0.0..0.1": 1
+        }
+      },
+      "language": {
+        "type": "choice",
+        "count": 1,
+        "counts": {
+          "js": 1
+        }
+      },
+      "quality": {
+        "type": "score",
+        "count": 1,
+        "min": 1.99,
+        "avg": 1.99,
+        "max": 1.99,
+        "buckets": {
+          "2": 1
+        }
+      }
+    },
+    "topItems": [
+      {
+        "item_id": "snippet",
+        "preview": "function add(a, b) { return a + b; } // простая функция сложения",
+        "answers": {
+          "has_error": {
+            "type": "bool",
+            "status": "ok",
+            "confidence": 1,
+            "confidenceSource": "max_prob",
+            "prob": 0
+          },
+          "language": {
+            "type": "choice",
+            "status": "ok",
+            "confidence": 1,
+            "confidenceSource": "provider",
+            "choice": "js",
+            "probabilities": {
+              "js": 1,
+              "other": 0,
+              "python": 0
+            }
+          },
+          "quality": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.99,
+            "confidenceSource": "provider",
+            "score": 1.99,
+            "probabilities": [
+              0,
+              0.01,
+              0.99
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "label": "batching/ms",
+    "alias": "ms",
+    "runId": "run_20261122_185844_bb3e",
+    "status": "completed",
+    "stats": {
+      "items_total": 320,
+      "items_processed": 320,
+      "items_skipped": 0,
+      "items_blocked": 0,
+      "batches_total": 4,
+      "input_tokens": 66660,
+      "output_tokens": 320,
+      "cost_rub": 0.32813167,
+      "cost_usd": null,
+      "duration_ms": 2770
+    },
+    "plan": null,
+    "warnings": [],
+    "summary": {
+      "severity": {
+        "type": "score",
+        "count": 320,
+        "min": 0.000031450559842272434,
+        "avg": 0.2737409210002197,
+        "max": 2.9959293335681996,
+        "buckets": {
+          "0": 290,
+          "3": 30
+        }
+      }
+    },
+    "topItems": [
+      {
+        "item_id": "step_100",
+        "preview": "{\"step_id\":\"step_100\",\"role\":\"assistant\",\"tool_name\":\"write_file\",\"arguments\":{\"path\":\"synthetic_100.txt\"},\"status\":\"error\",\"error\":\"PermissionError: access denied\",\"reasoning\":\"Шаг 100: инструмент вернул PermissionError, повторяю тот же вызов снова и снова. Шаг 100: инструмент вернул PermissionErro",
+        "answers": {
+          "severity": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.9945728434612692,
+            "confidenceSource": "provider",
+            "score": 2.9959293335681996,
+            "probabilities": [
+              6.797826439845836e-8,
+              1.6307122347531318e-7,
+              0.004070136354560126,
+              0.9959296325959519
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_122",
+        "preview": "{\"step_id\":\"step_122\",\"role\":\"assistant\",\"tool_name\":\"write_file\",\"arguments\":{\"path\":\"synthetic_122.txt\"},\"status\":\"error\",\"error\":\"PermissionError: access denied\",\"reasoning\":\"Шаг 122: инструмент вернул PermissionError, повторяю тот же вызов снова и снова. Шаг 122: инструмент вернул PermissionErro",
+        "answers": {
+          "severity": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.9930386210886835,
+            "confidenceSource": "provider",
+            "score": 2.9947777076536637,
+            "probabilities": [
+              3.448229544155258e-7,
+              5.68516939570538e-7,
+              0.0052201208435933,
+              0.9947789658165126
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_166",
+        "preview": "{\"step_id\":\"step_166\",\"role\":\"assistant\",\"tool_name\":\"write_file\",\"arguments\":{\"path\":\"synthetic_166.txt\"},\"status\":\"error\",\"error\":\"PermissionError: access denied\",\"reasoning\":\"Шаг 166: инструмент вернул PermissionError, повторяю тот же вызов снова и снова. Шаг 166: инструмент вернул PermissionErro",
+        "answers": {
+          "severity": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.985349257880069,
+            "confidenceSource": "provider",
+            "score": 2.9890105159366187,
+            "probabilities": [
+              3.025409428319331e-7,
+              8.223915472649106e-7,
+              0.010986931657458185,
+              0.9890119434100517
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_199",
+        "preview": "{\"step_id\":\"step_199\",\"role\":\"assistant\",\"tool_name\":\"write_file\",\"arguments\":{\"path\":\"synthetic_199.txt\"},\"status\":\"error\",\"error\":\"PermissionError: access denied\",\"reasoning\":\"Шаг 199: инструмент вернул PermissionError, повторяю тот же вызов снова и снова. Шаг 199: инструмент вернул PermissionErro",
+        "answers": {
+          "severity": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.9853490053653622,
+            "confidenceSource": "provider",
+            "score": 2.989010045191917,
+            "probabilities": [
+              3.8847023174411927e-7,
+              9.318916413726407e-7,
+              0.010986925614105296,
+              0.9890117540240216
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_144",
+        "preview": "{\"step_id\":\"step_144\",\"role\":\"assistant\",\"tool_name\":\"write_file\",\"arguments\":{\"path\":\"synthetic_144.txt\"},\"status\":\"error\",\"error\":\"PermissionError: access denied\",\"reasoning\":\"Шаг 144: инструмент вернул PermissionError, повторяю тот же вызов снова и снова. Шаг 144: инструмент вернул PermissionErro",
+        "answers": {
+          "severity": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.9812475677069955,
+            "confidenceSource": "provider",
+            "score": 2.9859347639528178,
+            "probabilities": [
+              2.0728649213409898e-7,
+              4.972544447535952e-7,
+              0.014063619678816452,
+              0.9859356757802467
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "label": "funnel/stage1",
+    "alias": "ms",
+    "runId": "run_20261122_185847_04db",
+    "status": "completed",
+    "stats": {
+      "items_total": 12,
+      "items_processed": 12,
+      "items_skipped": 0,
+      "items_blocked": 0,
+      "batches_total": 1,
+      "input_tokens": 2681,
+      "output_tokens": 12,
+      "cost_rub": 0.01319713,
+      "cost_usd": null,
+      "duration_ms": 1520
+    },
+    "plan": null,
+    "warnings": [],
+    "summary": {
+      "problem_score": {
+        "type": "score",
+        "count": 12,
+        "min": 0.181841555207124,
+        "avg": 1.5905470773231472,
+        "max": 2.6729551508475016,
+        "buckets": {
+          "0": 1,
+          "1": 5,
+          "2": 2,
+          "3": 4
+        }
+      }
+    },
+    "topItems": [
+      {
+        "item_id": "step_012",
+        "preview": "step_id: step_012 role: assistant tool: write_file arguments: {\"path\":\"synthetic_12.txt\"} status: error response: Синтетический фрагмент 12 для проверки батчинга. Синтетический фрагмент 12 для проверки батчинга. error: PermissionError: access denied reasoning: 113 toks, 248 chars; first: \"Шаг 12: ин",
+        "answers": {
+          "problem_score": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.5693094102002498,
+            "confidenceSource": "provider",
+            "score": 2.6729551508475016,
+            "probabilities": [
+              0.0007926643532044362,
+              0.002441578096277018,
+              0.3197836999003312,
+              0.6769820576501874
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_008",
+        "preview": "step_id: step_008 role: assistant tool: write_file arguments: {\"path\":\"synthetic_8.txt\"} status: error response: Синтетический фрагмент 8 для проверки батчинга. Синтетический фрагмент 8 для проверки батчинга. error: PermissionError: access denied reasoning: 112 toks, 246 chars; first: \"Шаг 8: инстру",
+        "answers": {
+          "problem_score": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.41379846366681133,
+            "confidenceSource": "provider",
+            "score": 2.5564417159139032,
+            "probabilities": [
+              0.0006561010072577498,
+              0.0025949298216898713,
+              0.4364001214209439,
+              0.5603488477501085
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_010",
+        "preview": "step_id: step_010 role: assistant tool: write_file arguments: {\"path\":\"synthetic_10.txt\"} status: error response: Синтетический фрагмент 10 для проверки батчинга. Синтетический фрагмент 10 для проверки батчинга. error: PermissionError: access denied reasoning: 113 toks, 248 chars; first: \"Шаг 10: ин",
+        "answers": {
+          "problem_score": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.4126949458950313,
+            "confidenceSource": "provider",
+            "score": 2.553844763703616,
+            "probabilities": [
+              0.0009532111812781966,
+              0.0037700233551010223,
+              0.4357555560423473,
+              0.5595212094212735
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_006",
+        "preview": "step_id: step_006 role: assistant tool: write_file arguments: {\"path\":\"synthetic_6.txt\"} status: error response: Синтетический фрагмент 6 для проверки батчинга. Синтетический фрагмент 6 для проверки батчинга. error: PermissionError: access denied reasoning: 112 toks, 246 chars; first: \"Шаг 6: инстру",
+        "answers": {
+          "problem_score": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.3727696430793386,
+            "confidenceSource": "provider",
+            "score": 2.5258846605855627,
+            "probabilities": [
+              0.0006200712259053156,
+              0.002452429272130941,
+              0.46735026719245987,
+              0.5295772323095039
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_004",
+        "preview": "step_id: step_004 role: assistant tool: write_file arguments: {\"path\":\"synthetic_4.txt\"} status: error response: Синтетический фрагмент 4 для проверки батчинга. Синтетический фрагмент 4 для проверки батчинга. error: PermissionError: access denied reasoning: 112 toks, 246 chars; first: \"Шаг 4: инстру",
+        "answers": {
+          "problem_score": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.37276964320865086,
+            "confidenceSource": "provider",
+            "score": 2.4636576957735246,
+            "probabilities": [
+              0.0006200711890597485,
+              0.0024524291264038955,
+              0.5295772324064881,
+              0.4673502672780482
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_002",
+        "preview": "step_id: step_002 role: assistant tool: write_file arguments: {\"path\":\"synthetic_2.txt\"} status: error response: Синтетический фрагмент 2 для проверки батчинга. Синтетический фрагмент 2 для проверки батчинга. error: PermissionError: access denied reasoning: 112 toks, 246 chars; first: \"Шаг 2: инстру",
+        "answers": {
+          "problem_score": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.5685887916279097,
+            "confidenceSource": "provider",
+            "score": 2.3150179505931203,
+            "probabilities": [
+              0.00048039159562592894,
+              0.0035496404495347967,
+              0.6764415937209323,
+              0.319528374233907
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_003",
+        "preview": "step_id: step_003 role: assistant tool: read_file arguments: {\"path\":\"synthetic_3.txt\"} status: ok response: Синтетический фрагмент 3 для проверки батчинга. Синтетический фрагмент 3 для проверки батчинга. reasoning: 81 toks, 178 chars; first: \"Шаг 3: читаю файл, вывод выглядит нормально.\"; last: \"Пр",
+        "answers": {
+          "problem_score": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.7976088931317679,
+            "confidenceSource": "provider",
+            "score": 0.8574700110285203,
+            "probabilities": [
+              0.14739622446972478,
+              0.8482066698488259,
+              0.003927975864653758,
+              0.00046912981679563285
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_007",
+        "preview": "step_id: step_007 role: assistant tool: read_file arguments: {\"path\":\"synthetic_7.txt\"} status: ok response: Синтетический фрагмент 7 для проверки батчинга. Синтетический фрагмент 7 для проверки батчинга. reasoning: 81 toks, 178 chars; first: \"Шаг 7: читаю файл, вывод выглядит нормально.\"; last: \"Пр",
+        "answers": {
+          "problem_score": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.7255261154612195,
+            "confidenceSource": "provider",
+            "score": 0.8046151166873653,
+            "probabilities": [
+              0.20079118431735096,
+              0.7941445865959146,
+              0.00472215716875241,
+              0.00034207191798197337
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_009",
+        "preview": "step_id: step_009 role: assistant tool: read_file arguments: {\"path\":\"synthetic_9.txt\"} status: ok response: Синтетический фрагмент 9 для проверки батчинга. Синтетический фрагмент 9 для проверки батчинга. reasoning: 81 toks, 178 chars; first: \"Шаг 9: читаю файл, вывод выглядит нормально.\"; last: \"Пр",
+        "answers": {
+          "problem_score": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.6678020804064791,
+            "confidenceSource": "provider",
+            "score": 0.761940225615317,
+            "probabilities": [
+              0.24376581893762672,
+              0.7508515603048593,
+              0.005059196962083926,
+              0.0003234237954299445
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_005",
+        "preview": "step_id: step_005 role: assistant tool: read_file arguments: {\"path\":\"synthetic_5.txt\"} status: ok response: Синтетический фрагмент 5 для проверки батчинга. Синтетический фрагмент 5 для проверки батчинга. reasoning: 81 toks, 178 chars; first: \"Шаг 5: читаю файл, вывод выглядит нормально.\"; last: \"Пр",
+        "answers": {
+          "problem_score": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.6683055218859405,
+            "confidenceSource": "provider",
+            "score": 0.7614095630091348,
+            "probabilities": [
+              0.24388839431169756,
+              0.7512291414144554,
+              0.0044669712268617665,
+              0.00041549304698527793
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_011",
+        "preview": "step_id: step_011 role: assistant tool: read_file arguments: {\"path\":\"synthetic_11.txt\"} status: ok response: Синтетический фрагмент 11 для проверки батчинга. Синтетический фрагмент 11 для проверки батчинга. reasoning: 82 toks, 180 chars; first: \"Шаг 11: читаю файл, вывод выглядит нормально.\"; last:",
+        "answers": {
+          "problem_score": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.49134457292332634,
+            "confidenceSource": "provider",
+            "score": 0.6314865189130733,
+            "probabilities": [
+              0.3751443258992138,
+              0.6185084296924948,
+              0.006063644004295729,
+              0.0002836004039956725
+            ]
+          }
+        }
+      },
+      {
+        "item_id": "step_001",
+        "preview": "step_id: step_001 role: assistant tool: read_file arguments: {\"path\":\"synthetic_1.txt\"} status: ok response: Синтетический фрагмент 1 для проверки батчинга. Синтетический фрагмент 1 для проверки батчинга. reasoning: 81 toks, 178 chars; first: \"Шаг 1: читаю файл, вывод выглядит нормально.\"; last: \"Пр",
+        "answers": {
+          "problem_score": {
+            "type": "score",
+            "status": "ok",
+            "confidence": 0.7706491435470361,
+            "confidenceSource": "provider",
+            "score": 0.181841555207124,
+            "probabilities": [
+              0.827986857660277,
+              0.1630402864774103,
+              0.008117298857224323,
+              0.0008555570050883512
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "label": "funnel/stage2",
+    "alias": "ms",
+    "runId": "run_20261122_185849_d039",
+    "status": "completed",
+    "stats": {
+      "items_total": 6,
+      "items_processed": 6,
+      "items_skipped": 0,
+      "items_blocked": 0,
+      "batches_total": 1,
+      "input_tokens": 14458,
+      "output_tokens": 6,
+      "cost_rub": 0.07116903,
+      "cost_usd": null,
+      "duration_ms": 1307
+    },
+    "plan": null,
+    "warnings": [],
+    "summary": {
+      "root_cause": {
+        "type": "choice",
+        "count": 6,
+        "counts": {
+          "permissions": 6
+        }
+      }
+    },
+    "topItems": [
+      {
+        "item_id": "step_002",
+        "preview": "--- step_001 (seq 0) --- { \"step_id\": \"step_001\", \"role\": \"assistant\", \"tool_name\": \"read_file\", \"arguments\": { \"path\": \"synthetic_1.txt\" }, \"status\": \"ok\", \"error\": null, \"reasoning\": \"Шаг 1: читаю файл, вывод выглядит нормально. Шаг 1: читаю файл, вывод выглядит нормально. Проверяю результат и сра",
+        "answers": {
+          "root_cause": {
+            "type": "choice",
+            "status": "ok",
+            "confidence": 0.9998761603896069,
+            "confidenceSource": "provider",
+            "choice": "permissions",
+            "probabilities": {
+              "other": 0.00006605039605599554,
+              "permissions": 0.9999071202922052,
+              "reasoning": 0.00001670015544154133,
+              "tool": 0.000010129156297261589
+            }
+          }
+        }
+      },
+      {
+        "item_id": "step_004",
+        "preview": "--- step_001 (seq 0) --- { \"step_id\": \"step_001\", \"role\": \"assistant\", \"tool_name\": \"read_file\", \"arguments\": { \"path\": \"synthetic_1.txt\" }, \"status\": \"ok\", \"error\": null, \"reasoning\": \"Шаг 1: читаю файл, вывод выглядит нормально. Шаг 1: читаю файл, вывод выглядит нормально. Проверяю результат и сра",
+        "answers": {
+          "root_cause": {
+            "type": "choice",
+            "status": "ok",
+            "confidence": 0.999936700091672,
+            "confidenceSource": "provider",
+            "choice": "permissions",
+            "probabilities": {
+              "other": 0.000031201399874001175,
+              "permissions": 0.999952525068754,
+              "reasoning": 0.000010129611454128983,
+              "tool": 0.0000061439199179055
+            }
+          }
+        }
+      },
+      {
+        "item_id": "step_006",
+        "preview": "--- step_001 (seq 0) --- { \"step_id\": \"step_001\", \"role\": \"assistant\", \"tool_name\": \"read_file\", \"arguments\": { \"path\": \"synthetic_1.txt\" }, \"status\": \"ok\", \"error\": null, \"reasoning\": \"Шаг 1: читаю файл, вывод выглядит нормально. Шаг 1: читаю файл, вывод выглядит нормально. Проверяю результат и сра",
+        "answers": {
+          "root_cause": {
+            "type": "choice",
+            "status": "ok",
+            "confidence": 0.9999327480731367,
+            "confidenceSource": "provider",
+            "choice": "permissions",
+            "probabilities": {
+              "other": 0.00003535571741021724,
+              "permissions": 0.9999495610548526,
+              "reasoning": 0.000008939325299386165,
+              "tool": 0.000006143902437893008
+            }
+          }
+        }
+      },
+      {
+        "item_id": "step_008",
+        "preview": "--- step_001 (seq 0) --- { \"step_id\": \"step_001\", \"role\": \"assistant\", \"tool_name\": \"read_file\", \"arguments\": { \"path\": \"synthetic_1.txt\" }, \"status\": \"ok\", \"error\": null, \"reasoning\": \"Шаг 1: читаю файл, вывод выглядит нормально. Шаг 1: читаю файл, вывод выглядит нормально. Проверяю результат и сра",
+        "answers": {
+          "root_cause": {
+            "type": "choice",
+            "status": "ok",
+            "confidence": 0.9999327480731367,
+            "confidenceSource": "provider",
+            "choice": "permissions",
+            "probabilities": {
+              "other": 0.00003535571741021724,
+              "permissions": 0.9999495610548526,
+              "reasoning": 0.000008939325299386165,
+              "tool": 0.000006143902437893008
+            }
+          }
+        }
+      },
+      {
+        "item_id": "step_010",
+        "preview": "--- step_001 (seq 0) --- { \"step_id\": \"step_001\", \"role\": \"assistant\", \"tool_name\": \"read_file\", \"arguments\": { \"path\": \"synthetic_1.txt\" }, \"status\": \"ok\", \"error\": null, \"reasoning\": \"Шаг 1: читаю файл, вывод выглядит нормально. Шаг 1: читаю файл, вывод выглядит нормально. Проверяю результат и сра",
+        "answers": {
+          "root_cause": {
+            "type": "choice",
+            "status": "ok",
+            "confidence": 0.9999537777260734,
+            "confidenceSource": "provider",
+            "choice": "permissions",
+            "probabilities": {
+              "other": 0.00002429999750533842,
+              "permissions": 0.9999653332945551,
+              "reasoning": 0.000006144001547306114,
+              "tool": 0.000004222706392338637
+            }
+          }
+        }
+      }
+    ]
+  }
+]
