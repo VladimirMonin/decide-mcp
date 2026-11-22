@@ -76,7 +76,7 @@ decide-mcp/
 
 ### Поток C: Многоэтапная воронка (`from_run`)
 1. На Этапе 1 `decide_run` прогоняет 1 000 записей JSONL в проекции `skeleton` (сжатый вид + теги префильтра) с 1 вопросом `score`.
-2. На Этапе 2 `decide_run` получает `source: { type: "from_run", run_id: "...", where: "problem_score >= 1.5", context_window: 2, projection: "full" }`.
+2. На Этапе 2 `decide_run` получает `source: { type: "from_run", run_id: "...", where: { conditions: [{ question_id: "problem_score", field: "score", op: ">=", value: 1.5 }] }, context_window: 2, projection: "full" }`.
 3. `sources.ts` забирает отфильтрованные `item_id` из SQLite, догружает для них полные записи (включая полный `reasoning`) и склеивает пересекающиеся окна соседей в непрерывные эпизоды, вешая вопросы только на целевые `item_id`.
 4. На Этапе 3 аналогично отбираются подтверждённые сбои для таксономической классификации первопричин.
 5. На Этапе 4 сам агент через `decide_query` забирает агрегированную статистику и 3–5 показательных примеров на каждую категорию.
@@ -91,10 +91,12 @@ decide-mcp/
 CREATE TABLE IF NOT EXISTS runs (
   run_id            TEXT PRIMARY KEY,          -- например, run_20261122_184500_a1b2
   created_at        TEXT NOT NULL,             -- ISO 8601 UTC
+  finished_at       TEXT,                      -- ISO 8601 UTC, когда прогон получил терминальный статус
   status            TEXT NOT NULL,             -- running | completed | partial | failed
   provider          TEXT NOT NULL,             -- polza | openrouter
   model_alias       TEXT NOT NULL,             -- gemini | ms | jev | luna
   model_id          TEXT NOT NULL,             -- фактический ID модели на шлюзе
+  response_model    TEXT,                      -- версия ответившей модели (jev-1.14.0, …-20261111) для аудита
   scope             TEXT NOT NULL,             -- whole | per_item
   source_json       TEXT NOT NULL,             -- исходное описание source
   rubric_json       TEXT NOT NULL,             -- валидированная рубрика
@@ -105,6 +107,7 @@ CREATE TABLE IF NOT EXISTS runs (
   items_blocked     INTEGER NOT NULL DEFAULT 0,
   batches_total     INTEGER NOT NULL DEFAULT 0,
   input_tokens      INTEGER NOT NULL DEFAULT 0,
+  output_tokens     INTEGER NOT NULL DEFAULT 0,
   cost_rub          REAL,                      -- заполняется для Polza AI
   cost_usd          REAL,                      -- заполняется для OpenRouter
   duration_ms       INTEGER NOT NULL DEFAULT 0,
@@ -133,10 +136,13 @@ CREATE TABLE IF NOT EXISTS answers (
   prob              REAL,                      -- для bool: вероятность [0..1]
   score_value       REAL,                      -- для score: взвешенное среднее индексов
   choice_value      TEXT,                      -- для choice: ключ-победитель
-  confidence        REAL,                      -- нормализованная уверенность [0..1]
+  confidence        REAL NOT NULL,             -- нормализованная уверенность [0..1] всегда есть
+  confidence_source TEXT NOT NULL,             -- provider | max_prob | margin | top1 | none
   probabilities_json TEXT,                     -- сырой словарь/массив вероятностей
-  raw_answer_json   TEXT NOT NULL,             -- необработанный объект ответа провайдера
+  answer_json       TEXT NOT NULL,             -- нормализованный ответ целиком (NormalizedAnswer)
+  raw_answer_json   TEXT,                      -- пока всегда NULL: батчер отдаёт только нормализованные ответы
   status            TEXT NOT NULL DEFAULT 'ok',-- ok | refusal | safety_blocked | error
+  trace_id          TEXT,                      -- trace_id шлюза из тела ошибки (аудит)
   PRIMARY KEY (run_id, item_id, question_id),
   FOREIGN KEY (run_id, item_id) REFERENCES items(run_id, item_id) ON DELETE CASCADE
 );
@@ -146,6 +152,8 @@ CREATE INDEX IF NOT EXISTS idx_answers_run_q_score ON answers(run_id, question_i
 CREATE INDEX IF NOT EXISTS idx_answers_run_q_prob ON answers(run_id, question_id, prob);
 CREATE INDEX IF NOT EXISTS idx_answers_run_q_choice ON answers(run_id, question_id, choice_value);
 ```
+
+> Схема — источник правды для `store.ts`. `answer_json` хранит нормализованный `NormalizedAnswer` (включая `confidenceSource`), `raw_answer_json` оставлена под будущий проброс сырых ответов и пока всегда `NULL`: батчер отдаёт только нормализованные ответы. `context_window` у `from_run` и `inspect` ограничен 10 соседями, а `from_run` сверяет `content_hash` перезагруженного текста с сохранённым и помечает изменившийся источник в `meta.sourceChanged`.
 
 ### Зачем хранить сырые вероятности (`prob`, `score_value`, `probabilities_json`)
 * **Бесплатная калибровка порогов:** пересчитать, какие шаги попадут в отбор при пороге `1.2` вместо `1.5`, без повторного вызова API.
@@ -161,3 +169,11 @@ CREATE INDEX IF NOT EXISTS idx_answers_run_q_choice ON answers(run_id, question_
 3. **Защита от переполнения одним файлом:** элемент, размер которого вместе с вопросами превышает `per_question_context` выбранной модели, не роняет весь прогон — он фиксируется со статусом `skipped_too_large` (в будущих версиях — опциональный чанкинг с перекрытием).
 4. **Защита от Prompt Injection в недоверенных данных:** decision-модели работают за один прямой проход без цепочки рассуждений, поэтому враждебный текст внутри оцениваемого лога или кода может сместить логиты вероятностей. `decide-mcp` позиционируется строго как **инструмент анализа, фильтрации и маршрутизации** — его выходные вероятности никогда не должны автоматически запускать необратимые действия (удаление данных, финансовые списания, деплой) без подтверждения System Two или человека.
 5. **Отсутствие сырого SQL в MCP:** `decide_query` принимает только структурированный объект фильтров (`where`), который компилируется в параметризованные SQL-запросы через белый список полей и операторов.
+
+### Известные ограничения (осознанно отложено)
+
+* **`from_run` дублирует текст эпизода** на каждый целевой `item_id` в окне: при плотных целях контент растёт квадратично. Лечится per-item набором вопросов в батчере.
+* **`INSERT OR REPLACE` ответов** может каскадно переписывать связанные строки при повторной записи; побочный эффект ограничен ключом `(run_id, item_id, question_id)`.
+* **Имена `sort_by`** различаются: снаружи MCP — `question_id`, внутри ядра — `questionId`; маппинг делает сервер.
+* **Проверка путей не защищает от hardlink/TOCTOU**: между `realpath` и чтением файл может быть подменён; для MVP это принято.
+* **Мелочи:** код `unsupported_source` объявлен, но не используется; суффикс `createRunId` — 4 случайных hex-символа без проверки коллизий.

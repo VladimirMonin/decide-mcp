@@ -382,6 +382,11 @@ export interface BatcherRunResult {
    */
   batchesTotal: number;
   usage: ProviderUsage;
+  /**
+   * Версия ответившей модели (`jev-1.14.0`, `…-20261111`). Батч может делиться
+   * на несколько вызовов — берём первую непустую версию, она уходит в аудит.
+   */
+  responseModel: string | null;
 }
 
 export interface RunPlanOptions {
@@ -453,6 +458,11 @@ interface RunContext {
   failures: BatcherFailure[];
   batchesTotal: number;
   usage: ProviderUsage;
+  /**
+   * Версия ответившей модели (`jev-1.14.0`, `…-20261111`). Батч может делиться
+   * на несколько вызовов — берём первую непустую версию, она уходит в аудит.
+   */
+  responseModel: string | null;
 }
 
 async function runBatch(
@@ -470,6 +480,9 @@ async function runBatch(
       }),
     );
     accumulateUsage(context.usage, response.usage);
+    if (context.responseModel === null && response.responseModel !== null) {
+      context.responseModel = response.responseModel;
+    }
 
     for (const [apiKey, answer] of Object.entries(response.answers)) {
       const ref = batch.refs[apiKey];
@@ -555,6 +568,7 @@ export async function runPlan(
     failures: [],
     batchesTotal: 0,
     usage: { inputTokens: 0, outputTokens: 0 },
+    responseModel: null,
   };
 
   await Promise.all(
@@ -570,5 +584,6 @@ export async function runPlan(
     failures: context.failures,
     batchesTotal: context.batchesTotal,
     usage: context.usage,
+    responseModel: context.responseModel,
   };
 }
