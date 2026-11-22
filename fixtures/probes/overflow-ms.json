@@ -1,0 +1,61 @@
+{
+  "probe": "overflow-ms",
+  "note": "Один элемент ~150K символов при окне ms 32 768 токенов.",
+  "requestedAt": "2026-11-22T18:15:43.821Z",
+  "endpoint": "https://polza.ai/api/v1/systemone",
+  "request": {
+    "model": "microsoft/microsoft-decision-1",
+    "stateChars": 150145,
+    "estimatedTokensByChars": 53624,
+    "questions": {
+      "is_code": {
+        "type": "noul",
+        "instructions": "Содержит ли фрагмент программный код?"
+      }
+    },
+    "statePreviewHead": "[ITEM id=\"overflow_item\"]\nШаг 41: инструмент вернул ошибку доступа к файлу, агент повторил вызов с теми же аргументами и получил тот же отказ. Шаг 41: инструмент вернул ошибку доступа к файлу, агент повторил вызов с теми же аргументами и получил тот же отказ. Шаг 41: инструмент вернул ошибку доступа к файлу, агент повторил вызов с теми же аргументами и получил тот же отказ. Шаг 41: инструмент верн",
+    "statePreviewTail": " файлу, агент повторил вызов с теми же аргументами и получил тот же отказ. Шаг 41: инструмент вернул ошибку доступа к файлу, агент повторил вызов с теми же аргументами и получил тот же отказ. \n[/ITEM]"
+  },
+  "status": 400,
+  "durationMs": 1784,
+  "networkError": null,
+  "error": {
+    "rootKeys": [
+      "error",
+      "trace_id",
+      "detail"
+    ],
+    "error": {
+      "code": "BAD_REQUEST",
+      "message": "Некорректный запрос.",
+      "trace_id": "035c9cc0-acf8-4305-87f3-59e5c3ec94a2",
+      "metadata": {
+        "raw": "request is about 67074 tokens; the limit for the state plus all questions is 64000"
+      }
+    },
+    "detail": {
+      "error_type": "bad_request",
+      "message": "Некорректный запрос."
+    },
+    "message": null,
+    "errorSnippet": "BAD_REQUEST: Некорректный запрос."
+  },
+  "parseError": null,
+  "usage": null,
+  "response": {
+    "error": {
+      "code": "BAD_REQUEST",
+      "message": "Некорректный запрос.",
+      "trace_id": "035c9cc0-acf8-4305-87f3-59e5c3ec94a2",
+      "metadata": {
+        "raw": "request is about 67074 tokens; the limit for the state plus all questions is 64000"
+      }
+    },
+    "trace_id": "035c9cc0-acf8-4305-87f3-59e5c3ec94a2",
+    "detail": {
+      "error_type": "bad_request",
+      "message": "Некорректный запрос."
+    }
+  },
+  "rawTextHead": null
+}

@@ -1,0 +1,96 @@
+{
+  "probe": "baseline-ms",
+  "note": "Контрольный минимальный запрос: формат и стоимость на текущий момент.",
+  "requestedAt": "2026-11-22T18:16:31.149Z",
+  "endpoint": "https://polza.ai/api/v1/systemone",
+  "request": {
+    "model": "microsoft/microsoft-decision-1",
+    "stateChars": 59,
+    "estimatedTokensByChars": 22,
+    "questions": {
+      "harmful_request": {
+        "type": "noul",
+        "instructions": "Содержит ли фрагмент просьбу дать вредоносную инструкцию (оружие, взрывчатка, наркотики, обход закона)?"
+      },
+      "is_code": {
+        "type": "noul",
+        "instructions": "Содержит ли фрагмент программный код?"
+      },
+      "language": {
+        "type": "choice",
+        "instructions": "На каком языке написан фрагмент?",
+        "criteria": {
+          "js": "JavaScript",
+          "python": "Python",
+          "other": "другой язык"
+        }
+      },
+      "quality": {
+        "type": "score",
+        "instructions": "Насколько фрагмент понятен?",
+        "criteria": [
+          "плохо",
+          "средне",
+          "хорошо"
+        ]
+      }
+    },
+    "statePreviewHead": "[ITEM id=\"i1\"]\nfunction add(a, b) { return a + b; }\n[/ITEM]",
+    "statePreviewTail": "[ITEM id=\"i1\"]\nfunction add(a, b) { return a + b; }\n[/ITEM]"
+  },
+  "status": 200,
+  "durationMs": 2761,
+  "networkError": null,
+  "error": null,
+  "parseError": null,
+  "usage": {
+    "input_tokens": 168,
+    "output_tokens": 4,
+    "cost_rub": 0.00082697
+  },
+  "response": {
+    "model": "microsoft/microsoft-decision-1-20261009",
+    "answers": {
+      "harmful_request": {
+        "type": "noul",
+        "noul": 0.00033535075546110615
+      },
+      "is_code": {
+        "type": "noul",
+        "noul": 0.9669140791677758
+      },
+      "language": {
+        "type": "choice",
+        "choice": "js",
+        "probabilities": {
+          "js": 0.7251692485629535,
+          "other": 0.26677484996554385,
+          "python": 0.008055901471502673
+        },
+        "confidence": 0.5877538728444303
+      },
+      "quality": {
+        "type": "score",
+        "score": 1.9108826836147865,
+        "legend": {
+          "0": "плохо",
+          "1": "средне",
+          "2": "хорошо"
+        },
+        "probabilities": {
+          "0": 0.014964931693022274,
+          "1": 0.05918745299916882,
+          "2": 0.9258476153078089
+        },
+        "confidence": 0.8887714229617134
+      }
+    },
+    "usage": {
+      "input_tokens": 168,
+      "output_tokens": 4,
+      "cost_rub": 0.00082697
+    }
+  },
+  "responseText": "{\"model\":\"microsoft/microsoft-decision-1-20261009\",\"answers\":{\"harmful_request\":{\"type\":\"noul\",\"noul\":0.00033535075546110615},\"is_code\":{\"type\":\"noul\",\"noul\":0.9669140791677758},\"language\":{\"type\":\"choice\",\"choice\":\"js\",\"probabilities\":{\"js\":0.7251692485629535,\"other\":0.26677484996554385,\"python\":0.008055901471502673},\"confidence\":0.5877538728444303},\"quality\":{\"type\":\"score\",\"score\":1.9108826836147865,\"legend\":{\"0\":\"плохо\",\"1\":\"средне\",\"2\":\"хорошо\"},\"probabilities\":{\"0\":0.014964931693022274,\"1\":0.05918745299916882,\"2\":0.9258476153078089},\"confidence\":0.8887714229617134}},\"usage\":{\"input_tokens\":168,\"output_tokens\":4,\"cost_rub\":0.00082697}}",
+  "rawTextHead": null
+}

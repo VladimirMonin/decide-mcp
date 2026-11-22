@@ -1,0 +1,71 @@
+{
+  "probe": "keys-batch-ms",
+  "note": "Ключи item_id__question_id: провайдер должен вернуть их без изменений.",
+  "requestedAt": "2026-11-22T18:16:10.221Z",
+  "endpoint": "https://polza.ai/api/v1/systemone",
+  "request": {
+    "model": "microsoft/microsoft-decision-1",
+    "stateChars": 146,
+    "estimatedTokensByChars": 53,
+    "questions": {
+      "i1__is_code": {
+        "type": "noul",
+        "instructions": "Содержит ли фрагмент программный код?"
+      },
+      "i1__language": {
+        "type": "choice",
+        "instructions": "На каком языке написан фрагмент?",
+        "criteria": {
+          "js": "JavaScript",
+          "python": "Python",
+          "other": "другой язык"
+        }
+      },
+      "i2__is_code": {
+        "type": "noul",
+        "instructions": "Содержит ли фрагмент программный код?"
+      }
+    },
+    "statePreviewHead": "[ITEM id=\"i1\"]\nfunction add(a, b) { return a + b; }\n[/ITEM]\n\n[ITEM id=\"i2\"]\n2026-11-22T10:00:00Z INFO request completed in 42ms status=200\n[/ITEM]",
+    "statePreviewTail": "[ITEM id=\"i1\"]\nfunction add(a, b) { return a + b; }\n[/ITEM]\n\n[ITEM id=\"i2\"]\n2026-11-22T10:00:00Z INFO request completed in 42ms status=200\n[/ITEM]"
+  },
+  "status": 200,
+  "durationMs": 1163,
+  "networkError": null,
+  "error": null,
+  "parseError": null,
+  "usage": {
+    "input_tokens": 167,
+    "output_tokens": 3,
+    "cost_rub": 0.00082205
+  },
+  "response": {
+    "model": "microsoft/microsoft-decision-1-20261009",
+    "answers": {
+      "i1__is_code": {
+        "type": "noul",
+        "noul": 0.9706877944267349
+      },
+      "i1__language": {
+        "type": "choice",
+        "choice": "js",
+        "probabilities": {
+          "js": 0.646675586038435,
+          "other": 0.3461404979712878,
+          "python": 0.007183915990277216
+        },
+        "confidence": 0.4700133790576525
+      },
+      "i2__is_code": {
+        "type": "noul",
+        "noul": 0.9706877944267349
+      }
+    },
+    "usage": {
+      "input_tokens": 167,
+      "output_tokens": 3,
+      "cost_rub": 0.00082205
+    }
+  },
+  "rawTextHead": null
+}

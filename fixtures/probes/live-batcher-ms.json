@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-11-22T18:20:59.668Z",
+  "model": "microsoft/microsoft-decision-1",
+  "batchesPlanned": 1,
+  "estimatedTokens": 646,
+  "batchesTotal": 1,
+  "usage": {
+    "inputTokens": 242,
+    "outputTokens": 4,
+    "costRub": 0.00119124
+  },
+  "failures": [],
+  "blocked": [],
+  "answers": [
+    {
+      "itemId": "i1",
+      "questionId": "is_code",
+      "status": "ok",
+      "prob": 0.999447221357338,
+      "choice": null,
+      "score": null,
+      "confidence": 0.999447221357338,
+      "confidenceSource": "max_prob"
+    },
+    {
+      "itemId": "i1",
+      "questionId": "language",
+      "status": "ok",
+      "prob": null,
+      "choice": "js",
+      "score": null,
+      "confidence": 0.969443804282931,
+      "confidenceSource": "provider"
+    },
+    {
+      "itemId": "i2",
+      "questionId": "is_code",
+      "status": "ok",
+      "prob": 0.04208794619866007,
+      "choice": null,
+      "score": null,
+      "confidence": 0.9579120538013399,
+      "confidenceSource": "max_prob"
+    },
+    {
+      "itemId": "i2",
+      "questionId": "language",
+      "status": "ok",
+      "prob": null,
+      "choice": "other",
+      "score": null,
+      "confidence": 0.9904383067472398,
+      "confidenceSource": "provider"
+    }
+  ]
+}

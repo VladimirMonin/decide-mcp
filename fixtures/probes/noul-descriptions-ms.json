@@ -1,0 +1,46 @@
+{
+  "probe": "noul-descriptions-ms",
+  "note": "Принимает ли noul поля true_description и false_description (в L2 они уходят в провайдера).",
+  "requestedAt": "2026-11-22T18:16:11.788Z",
+  "endpoint": "https://polza.ai/api/v1/systemone",
+  "request": {
+    "model": "microsoft/microsoft-decision-1",
+    "stateChars": 59,
+    "estimatedTokensByChars": 22,
+    "questions": {
+      "is_code": {
+        "type": "noul",
+        "instructions": "Содержит ли фрагмент программный код?",
+        "true_description": "Есть объявление функции, класса или выражения языка.",
+        "false_description": "Обычный текст, лог или разметка без кода."
+      }
+    },
+    "statePreviewHead": "[ITEM id=\"i1\"]\nfunction add(a, b) { return a + b; }\n[/ITEM]",
+    "statePreviewTail": "[ITEM id=\"i1\"]\nfunction add(a, b) { return a + b; }\n[/ITEM]"
+  },
+  "status": 200,
+  "durationMs": 1125,
+  "networkError": null,
+  "error": null,
+  "parseError": null,
+  "usage": {
+    "input_tokens": 54,
+    "output_tokens": 1,
+    "cost_rub": 0.00026581
+  },
+  "response": {
+    "model": "microsoft/microsoft-decision-1-20261009",
+    "answers": {
+      "is_code": {
+        "type": "noul",
+        "noul": 0.9669140637533229
+      }
+    },
+    "usage": {
+      "input_tokens": 54,
+      "output_tokens": 1,
+      "cost_rub": 0.00026581
+    }
+  },
+  "rawTextHead": null
+}

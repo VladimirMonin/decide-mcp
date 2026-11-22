@@ -1,0 +1,61 @@
+{
+  "probe": "overflow-batch-ms",
+  "note": "Пять коротких элементов и один гигантский: падает ли весь запрос.",
+  "requestedAt": "2026-11-22T18:15:46.015Z",
+  "endpoint": "https://polza.ai/api/v1/systemone",
+  "request": {
+    "model": "microsoft/microsoft-decision-1",
+    "stateChars": 150474,
+    "estimatedTokensByChars": 53741,
+    "questions": {
+      "is_code": {
+        "type": "noul",
+        "instructions": "Содержит ли фрагмент программный код?"
+      }
+    },
+    "statePreviewHead": "[ITEM id=\"i1\"]\nfunction add(a, b) { return a + b; }\n[/ITEM]\n\n[ITEM id=\"i2\"]\n2026-11-22T10:00:00Z INFO request completed in 42ms status=200\n[/ITEM]\n\n[ITEM id=\"i3\"]\n[ITEM id=\"overflow_item\"]\nШаг 41: инструмент вернул ошибку доступа к файлу, агент повторил вызов с теми же аргументами и получил тот же отказ. Шаг 41: инструмент вернул ошибку доступа к файлу, агент повторил вызов с теми же аргументами и",
+    "statePreviewTail": "и и получил тот же отказ. \n[/ITEM]\n[/ITEM]\n\n[ITEM id=\"i4\"]\nОтчёт о прогоне тестов: все 13 проверок завершились успешно, ошибок нет.\n[/ITEM]\n\n[ITEM id=\"i5\"]\nfunction add(a, b) { return a + b; }\n[/ITEM]"
+  },
+  "status": 400,
+  "durationMs": 1426,
+  "networkError": null,
+  "error": {
+    "rootKeys": [
+      "error",
+      "trace_id",
+      "detail"
+    ],
+    "error": {
+      "code": "BAD_REQUEST",
+      "message": "Некорректный запрос.",
+      "trace_id": "dfaf627f-5ebf-45f6-a0ab-48e26bad48f1",
+      "metadata": {
+        "raw": "request is about 67178 tokens; the limit for the state plus all questions is 64000"
+      }
+    },
+    "detail": {
+      "error_type": "bad_request",
+      "message": "Некорректный запрос."
+    },
+    "message": null,
+    "errorSnippet": "BAD_REQUEST: Некорректный запрос."
+  },
+  "parseError": null,
+  "usage": null,
+  "response": {
+    "error": {
+      "code": "BAD_REQUEST",
+      "message": "Некорректный запрос.",
+      "trace_id": "dfaf627f-5ebf-45f6-a0ab-48e26bad48f1",
+      "metadata": {
+        "raw": "request is about 67178 tokens; the limit for the state plus all questions is 64000"
+      }
+    },
+    "trace_id": "dfaf627f-5ebf-45f6-a0ab-48e26bad48f1",
+    "detail": {
+      "error_type": "bad_request",
+      "message": "Некорректный запрос."
+    }
+  },
+  "rawTextHead": null
+}

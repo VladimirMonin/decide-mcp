@@ -1,0 +1,194 @@
+{
+  "generatedAt": "2026-11-22T18:21:25+00:00",
+  "paid": true,
+  "totalCostRub": 0.02171601,
+  "probes": [
+    {
+      "probe": "baseline-ms",
+      "status": 200,
+      "durationMs": 2761,
+      "usage": {
+        "input_tokens": 168,
+        "output_tokens": 4,
+        "cost_rub": 0.00082697
+      },
+      "errorCode": null,
+      "errorType": null,
+      "file": "baseline-ms.json"
+    },
+    {
+      "probe": "keys-batch-ms",
+      "status": 200,
+      "durationMs": 1163,
+      "usage": {
+        "input_tokens": 167,
+        "output_tokens": 3,
+        "cost_rub": 0.00082205
+      },
+      "errorCode": null,
+      "errorType": null,
+      "file": "keys-batch-ms.json"
+    },
+    {
+      "probe": "live-batcher-ms",
+      "status": null,
+      "durationMs": null,
+      "usage": {
+        "inputTokens": 242,
+        "outputTokens": 4,
+        "costRub": 0.00119124
+      },
+      "errorCode": null,
+      "errorType": null,
+      "file": "live-batcher-ms.json"
+    },
+    {
+      "probe": "noul-descriptions-ms",
+      "status": 200,
+      "durationMs": 1125,
+      "usage": {
+        "input_tokens": 54,
+        "output_tokens": 1,
+        "cost_rub": 0.00026581
+      },
+      "errorCode": null,
+      "errorType": null,
+      "file": "noul-descriptions-ms.json"
+    },
+    {
+      "probe": "overflow-batch-ms",
+      "status": 400,
+      "durationMs": 1426,
+      "usage": {},
+      "errorCode": "BAD_REQUEST",
+      "errorType": "bad_request",
+      "file": "overflow-batch-ms.json"
+    },
+    {
+      "probe": "overflow-ms",
+      "status": 400,
+      "durationMs": 1784,
+      "usage": {},
+      "errorCode": "BAD_REQUEST",
+      "errorType": "bad_request",
+      "file": "overflow-ms.json"
+    },
+    {
+      "probe": "safety-batch-jev",
+      "status": 200,
+      "durationMs": 847,
+      "usage": {
+        "input_tokens": 517,
+        "output_tokens": 21,
+        "cost_rub": 0.00883651
+      },
+      "errorCode": null,
+      "errorType": null,
+      "file": "safety-batch-jev.json"
+    },
+    {
+      "probe": "safety-batch-ms",
+      "status": 200,
+      "durationMs": 1349,
+      "usage": {
+        "input_tokens": 206,
+        "output_tokens": 1,
+        "cost_rub": 0.00101403
+      },
+      "errorCode": null,
+      "errorType": null,
+      "file": "safety-batch-ms.json"
+    },
+    {
+      "probe": "safety-bomb-luna",
+      "status": 200,
+      "durationMs": 1077,
+      "usage": {
+        "input_tokens": 216,
+        "output_tokens": 0,
+        "cost_rub": 0.00253155
+      },
+      "errorCode": null,
+      "errorType": null,
+      "file": "safety-bomb-luna.json"
+    },
+    {
+      "probe": "safety-drugs-ms",
+      "status": 200,
+      "durationMs": 1110,
+      "usage": {
+        "input_tokens": 97,
+        "output_tokens": 1,
+        "cost_rub": 0.00047748
+      },
+      "errorCode": null,
+      "errorType": null,
+      "file": "safety-drugs-ms.json"
+    },
+    {
+      "probe": "safety-gemini",
+      "status": 200,
+      "durationMs": 1372,
+      "usage": {
+        "input_tokens": 153,
+        "output_tokens": 0,
+        "cost_rub": 0.00179318
+      },
+      "errorCode": null,
+      "errorType": null,
+      "file": "safety-gemini.json"
+    },
+    {
+      "probe": "safety-hate-luna",
+      "status": 200,
+      "durationMs": 1848,
+      "usage": {
+        "input_tokens": 215,
+        "output_tokens": 0,
+        "cost_rub": 0.00251983
+      },
+      "errorCode": null,
+      "errorType": null,
+      "file": "safety-hate-luna.json"
+    },
+    {
+      "probe": "safety-jailbreak-ms",
+      "status": 200,
+      "durationMs": 1301,
+      "usage": {
+        "input_tokens": 107,
+        "output_tokens": 1,
+        "cost_rub": 0.0005267
+      },
+      "errorCode": null,
+      "errorType": null,
+      "file": "safety-jailbreak-ms.json"
+    },
+    {
+      "probe": "safety-ms",
+      "status": 200,
+      "durationMs": 1607,
+      "usage": {
+        "input_tokens": 92,
+        "output_tokens": 1,
+        "cost_rub": 0.00045287
+      },
+      "errorCode": null,
+      "errorType": null,
+      "file": "safety-ms.json"
+    },
+    {
+      "probe": "safety-selfharm-ms",
+      "status": 200,
+      "durationMs": 941,
+      "usage": {
+        "input_tokens": 93,
+        "output_tokens": 1,
+        "cost_rub": 0.00045779
+      },
+      "errorCode": null,
+      "errorType": null,
+      "file": "safety-selfharm-ms.json"
+    }
+  ]
+}

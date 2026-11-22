@@ -342,6 +342,27 @@ export interface NormalizedAnswer {
    */
   confidence: number;
   probabilities?: Record<string, number> | number[];
+  /**
+   * Откуда взялась уверенность: `provider` — поле модели; `max_prob` — fallback
+   * для bool `max(prob, 1 - prob)`; `margin` — разница top-1 и top-2 для
+   * choice/score; `top1` — единственная вероятность; `none` — данных нет.
+   */
+  confidenceSource: "provider" | "max_prob" | "margin" | "top1" | "none";
+}
+
+/** Ответ адаптера на один батч; `answers` уже нормализованы. */
+export interface ProviderBatchResponse {
+  answers: Record<string, NormalizedAnswer>;
+  rawAnswers: Record<string, unknown>;
+  usage: {
+    inputTokens: number;
+    outputTokens: number;
+    costRub?: number;
+    costUsd?: number;
+  };
+  latencyMs: number;
+  /** Ответившая версия модели (`jev-1.14.0`, `google/gemini-decision-1-20261111`): хранится для аудита и `compare`. */
+  responseModel: string | null;
 }
 ```
 
@@ -352,9 +373,10 @@ export interface NormalizedAnswer {
 | `path_outside_root` | Попытка чтения за пределами `DECIDE_ALLOWED_ROOT` | Блокировка запроса |
 | `unsupported_in_mvp` | Попытка использовать `box` или медиа-вложения в v1 | Понятная ошибка без вызова API |
 | `skipped_too_large` | Один элемент + вопросы не влезает в `per_question_context` | Элемент пропускается, остальные обрабатываются |
+| `bad_request` | `HTTP 400` с `error.code=BAD_REQUEST` / `detail.error_type=bad_request`: ошибка схемы или переполнение `state` + вопросы | Не ретраится и не делится. Переполнение предотвращает батчер оценкой токенов и `skipped_too_large` |
 | `safety_blocked` | `HTTP 400` (`content_blocked` / `safety`) на элементе после бинарного деления | Изолируется конкретный элемент; не путается с `prob = 0.01` |
 | `refusal` | Частичный отказ модели по одному вопросу (`type: "refusal"`) | Сохраняется на уровне конкретного ответа |
 | `rate_limited` | `HTTP 429` после исчерпания ретраев | Статус прогона `partial`, уже полученные батчи сохранены в SQLite |
 | `provider_error` | Сетевой сбой / `5xx` после ретраев | Статус прогона `partial` или `failed`, детали в `error_summary` |
 
-> **HTTP 400 бывает двух видов.** Ошибка схемы или контракта приходит как `error.code=BAD_REQUEST` / `detail.error_type=bad_request`; её нельзя делить и ретраить как токсичный элемент — это дефект запроса. Бинарное деление и статус `safety_blocked` применяются только к `content_blocked` / `safety`. Ответ `model` содержит версию с датой или патчем (`jev-1.14.0`), её нужно сохранять для аудита.
+> **HTTP 400 бывает трёх видов.** Ошибка схемы или контракта приходит как `error.code=BAD_REQUEST` / `detail.error_type=bad_request`; переполнение окна — тем же `bad_request`, но с подробностями в `error.metadata.raw` (проба 2026-11-22: «request is about 67074 tokens; the limit for the state plus all questions is 64000»). Оба случая нельзя делить и ретраить как токсичный элемент — это дефект запроса. Бинарное деление и статус `safety_blocked` применяются только к `content_blocked` / `safety`, причём маркеры узкие: адаптер сверяет `error.code` и `detail.error_type` с этими двумя значениями точно, без подстрок; при первом реальном другом коде блокировки список `SAFETY_ERROR_MARKERS` в `src/core/providers/systemone.ts` расширяется по пробе. Ответ `model` содержит версию с датой или патчем (`jev-1.14.0`), её нужно сохранять для аудита — адаптер возвращает её в `ProviderBatchResponse.responseModel`.
