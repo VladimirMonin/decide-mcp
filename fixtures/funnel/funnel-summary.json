@@ -1,0 +1,338 @@
+{
+  "generatedAt": "2026-11-22T19:10:23.691Z",
+  "provider": "polza",
+  "data": {
+    "source": "Pi agent session (2026-09-27), assistant steps; user messages excluded",
+    "sourceSha256": "5c26d6b9e7698dc2c0e17518d5a404f7f30aba03929131ad1f6511cce80957b8",
+    "sourceEntries": 459,
+    "segment": "41..80 tool-call steps",
+    "steps": 40,
+    "errorSteps": 11,
+    "caps": {
+      "reasoning": 400,
+      "text": 150,
+      "arguments": 250,
+      "result": 250,
+      "error": 120
+    },
+    "rawScan": {
+      "apiKeys": 0,
+      "bearer": 0,
+      "envKeys": 0,
+      "emails": 0,
+      "phones": 0,
+      "homePaths": 15,
+      "homeDirs": 37,
+      "projectRoots": 72,
+      "projectNames": 37,
+      "absolutePaths": 52,
+      "quotes": 132,
+      "uuids": 0
+    },
+    "sanitizedScan": {
+      "apiKeys": 0,
+      "bearer": 0,
+      "envKeys": 0,
+      "emails": 0,
+      "phones": 0,
+      "homePaths": 0,
+      "homeDirs": 0,
+      "projectRoots": 0,
+      "projectNames": 0,
+      "absolutePaths": 0,
+      "quotes": 0,
+      "uuids": 0
+    },
+    "replacements": {
+      "homePaths": 15,
+      "homeDirs": 8,
+      "projectPaths": 37,
+      "projectNames": 1,
+      "absolutePaths": 2,
+      "quotes": 14,
+      "quoteLines": 18,
+      "secrets": 0,
+      "emails": 0,
+      "phones": 0,
+      "uuids": 0
+    },
+    "sanitizationNote": "Экранированные git-bash пути нормализуются до масок; домашний корень и его структура, а также корни проектов и абсолютные Windows-пути режутся целиком; reasoning/текст с приватными указаниями заменяется маркером [фрагмент удалён по приватности], в результатах/аргументах строки с такими указаниями вырезаются. Скан утечек идёт отдельными паттернами, не regex из sanitize()."
+  },
+  "stage0": {
+    "items": 40,
+    "totalReasoningToks": 1733,
+    "maxReasoningToks": 141,
+    "avgReasoningToks": 43.325,
+    "toolError": 11,
+    "repeatReasoning": 1,
+    "repeatTool": 0,
+    "maxRepeatTool": 0,
+    "reversals": 5,
+    "stepsWithReversals": 4,
+    "invalidJson": 0,
+    "stepsWithTags": 39
+  },
+  "stage1": {
+    "runId": "run_20261122_191018_35d8",
+    "stats": {
+      "items_total": 40,
+      "items_processed": 40,
+      "items_skipped": 0,
+      "items_blocked": 0,
+      "batches_total": 1,
+      "input_tokens": 16455,
+      "output_tokens": 0,
+      "cost_rub": 0.19285523,
+      "cost_usd": null,
+      "duration_ms": 1570
+    },
+    "summary": {
+      "problem_score": {
+        "type": "score",
+        "count": 40,
+        "min": 0.5321039710611064,
+        "avg": 1.5504427570580246,
+        "max": 2.7631583173310217,
+        "buckets": {
+          "0": 17,
+          "1": 6,
+          "2": 6,
+          "3": 11
+        }
+      }
+    },
+    "selectedTotal": 17,
+    "selectedIds": [
+      "step_041",
+      "step_042",
+      "step_043",
+      "step_045",
+      "step_046",
+      "step_048",
+      "step_049",
+      "step_050",
+      "step_051",
+      "step_054",
+      "step_055",
+      "step_056",
+      "step_057",
+      "step_062",
+      "step_072",
+      "step_074",
+      "step_080"
+    ]
+  },
+  "stage2": {
+    "runId": "run_20261122_191020_83af",
+    "stats": {
+      "items_total": 17,
+      "items_processed": 17,
+      "items_skipped": 0,
+      "items_blocked": 0,
+      "batches_total": 1,
+      "input_tokens": 109907,
+      "output_tokens": 0,
+      "cost_rub": 1.28812763,
+      "cost_usd": null,
+      "duration_ms": 2264
+    },
+    "summary": {
+      "bad_tool_call": {
+        "type": "bool",
+        "count": 17,
+        "avg_prob": 0.6499999999999999,
+        "buckets": {
+          "0.9..1.0": 5,
+          "0.5..0.6": 4,
+          "0.6..0.7": 2,
+          "0.8..0.9": 2,
+          "0.1..0.2": 1,
+          "0.7..0.8": 1,
+          "0.0..0.1": 2
+        }
+      },
+      "impact_severity": {
+        "type": "score",
+        "count": 17,
+        "min": 0.51,
+        "avg": 0.8964705882352941,
+        "max": 1.58,
+        "buckets": {
+          "0": 1,
+          "1": 15,
+          "2": 1
+        }
+      },
+      "overthinking_loop": {
+        "type": "bool",
+        "count": 17,
+        "avg_prob": 0.29705882352941176,
+        "buckets": {
+          "0.0..0.1": 4,
+          "0.1..0.2": 4,
+          "0.6..0.7": 3,
+          "0.5..0.6": 3,
+          "0.2..0.3": 3
+        }
+      },
+      "prompt_violation": {
+        "type": "bool",
+        "count": 17,
+        "avg_prob": 0.0029411764705882353,
+        "buckets": {
+          "0.0..0.1": 17
+        }
+      },
+      "reasoning_logic_fail": {
+        "type": "bool",
+        "count": 17,
+        "avg_prob": 0.31470588235294117,
+        "buckets": {
+          "0.0..0.1": 10,
+          "0.2..0.3": 2,
+          "0.9..1.0": 2,
+          "0.7..0.8": 1,
+          "0.8..0.9": 2
+        }
+      }
+    },
+    "targets": 17,
+    "inspect": [
+      {
+        "itemId": "step_041",
+        "target": true,
+        "markers": 27,
+        "hasTargetMarker": true,
+        "truncated": false
+      },
+      {
+        "itemId": "step_042",
+        "target": true,
+        "markers": 27,
+        "hasTargetMarker": true,
+        "truncated": false
+      },
+      {
+        "itemId": "step_043",
+        "target": true,
+        "markers": 27,
+        "hasTargetMarker": true,
+        "truncated": false
+      },
+      {
+        "itemId": "step_045",
+        "target": false,
+        "markers": 27,
+        "hasTargetMarker": true,
+        "truncated": false
+      }
+    ]
+  },
+  "stage3": {
+    "runId": "run_20261122_191022_8fa5",
+    "stats": {
+      "items_total": 1,
+      "items_processed": 1,
+      "items_skipped": 0,
+      "items_blocked": 0,
+      "batches_total": 1,
+      "input_tokens": 8809,
+      "output_tokens": 221,
+      "cost_rub": 0.15056255,
+      "cost_usd": null,
+      "duration_ms": 841
+    },
+    "summary": {
+      "fix_target": {
+        "type": "choice",
+        "count": 1,
+        "counts": {
+          "system_prompt_rules": 1
+        }
+      },
+      "is_instruction_defect": {
+        "type": "bool",
+        "count": 1,
+        "avg_prob": 0.47,
+        "buckets": {
+          "0.4..0.5": 1
+        }
+      },
+      "root_cause": {
+        "type": "choice",
+        "count": 1,
+        "counts": {
+          "bad_error_recovery": 1
+        }
+      }
+    },
+    "perBool": {
+      "reasoning_logic_fail": 4,
+      "overthinking_loop": 0,
+      "bad_tool_call": 7,
+      "prompt_violation": 0
+    },
+    "severityTotal": 1,
+    "confirmed": [
+      "step_055"
+    ],
+    "aggregate": {
+      "itemsClassified": 1,
+      "confirmedCovered": 1,
+      "clustersConfirmed": {
+        "root_cause": {
+          "bad_error_recovery": 1
+        },
+        "fix_target": {
+          "system_prompt_rules": 1
+        },
+        "is_instruction_defect": {
+          "false": 1
+        }
+      },
+      "clustersAll": {
+        "root_cause": {
+          "bad_error_recovery": 1
+        },
+        "fix_target": {
+          "system_prompt_rules": 1
+        },
+        "is_instruction_defect": {
+          "false": 1
+        }
+      },
+      "confirmedIds": [
+        "step_055"
+      ]
+    }
+  },
+  "paidRuns": [
+    {
+      "label": "stage1",
+      "model": "gemini",
+      "runId": "run_20261122_191018_35d8",
+      "costRub": 0.19285523,
+      "inputTokens": 16455,
+      "outputTokens": 0
+    },
+    {
+      "label": "stage2",
+      "model": "luna",
+      "runId": "run_20261122_191020_83af",
+      "costRub": 1.28812763,
+      "inputTokens": 109907,
+      "outputTokens": 0
+    },
+    {
+      "label": "stage3",
+      "model": "jev",
+      "runId": "run_20261122_191022_8fa5",
+      "costRub": 0.15056255,
+      "inputTokens": 8809,
+      "outputTokens": 221
+    }
+  ],
+  "totalCostRub": 1.63154541,
+  "dataNote": "Платные этапы 1–3 выполнены на копии до ужесточения обезличивания; опубликованная session-sanitized.jsonl пересобрана строже (пути и приватные указания удалены) и не совпадает с входом прогона байт-в-байт. Метрики этапов сохранены из прогона.",
+  "stage0Note": "Опубликованная (ужесточённая) копия; на копии платного прогона было 3201 токен (avg 80)."
+}

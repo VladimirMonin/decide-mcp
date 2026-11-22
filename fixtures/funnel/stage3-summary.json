@@ -1,0 +1,79 @@
+{
+  "runId": "run_20261122_191022_8fa5",
+  "model": "jev",
+  "stats": {
+    "items_total": 1,
+    "items_processed": 1,
+    "items_skipped": 0,
+    "items_blocked": 0,
+    "batches_total": 1,
+    "input_tokens": 8809,
+    "output_tokens": 221,
+    "cost_rub": 0.15056255,
+    "cost_usd": null,
+    "duration_ms": 841
+  },
+  "summary": {
+    "fix_target": {
+      "type": "choice",
+      "count": 1,
+      "counts": {
+        "system_prompt_rules": 1
+      }
+    },
+    "is_instruction_defect": {
+      "type": "bool",
+      "count": 1,
+      "avg_prob": 0.47,
+      "buckets": {
+        "0.4..0.5": 1
+      }
+    },
+    "root_cause": {
+      "type": "choice",
+      "count": 1,
+      "counts": {
+        "bad_error_recovery": 1
+      }
+    }
+  },
+  "perBool": {
+    "reasoning_logic_fail": 4,
+    "overthinking_loop": 0,
+    "bad_tool_call": 7,
+    "prompt_violation": 0
+  },
+  "severityTotal": 1,
+  "confirmed": [
+    "step_055"
+  ],
+  "aggregate": {
+    "itemsClassified": 1,
+    "confirmedCovered": 1,
+    "clustersConfirmed": {
+      "root_cause": {
+        "bad_error_recovery": 1
+      },
+      "fix_target": {
+        "system_prompt_rules": 1
+      },
+      "is_instruction_defect": {
+        "false": 1
+      }
+    },
+    "clustersAll": {
+      "root_cause": {
+        "bad_error_recovery": 1
+      },
+      "fix_target": {
+        "system_prompt_rules": 1
+      },
+      "is_instruction_defect": {
+        "false": 1
+      }
+    },
+    "confirmedIds": [
+      "step_055"
+    ]
+  }
+}

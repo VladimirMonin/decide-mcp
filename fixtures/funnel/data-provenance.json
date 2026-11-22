@@ -1,0 +1,57 @@
+{
+  "source": "Pi agent session (2026-09-27), assistant steps; user messages excluded",
+  "sourceSha256": "5c26d6b9e7698dc2c0e17518d5a404f7f30aba03929131ad1f6511cce80957b8",
+  "sourceEntries": 459,
+  "segment": "41..80 tool-call steps",
+  "steps": 40,
+  "errorSteps": 11,
+  "caps": {
+    "reasoning": 400,
+    "text": 150,
+    "arguments": 250,
+    "result": 250,
+    "error": 120
+  },
+  "rawScan": {
+    "apiKeys": 0,
+    "bearer": 0,
+    "envKeys": 0,
+    "emails": 0,
+    "phones": 0,
+    "homePaths": 15,
+    "homeDirs": 37,
+    "projectRoots": 72,
+    "projectNames": 37,
+    "absolutePaths": 52,
+    "quotes": 132,
+    "uuids": 0
+  },
+  "sanitizedScan": {
+    "apiKeys": 0,
+    "bearer": 0,
+    "envKeys": 0,
+    "emails": 0,
+    "phones": 0,
+    "homePaths": 0,
+    "homeDirs": 0,
+    "projectRoots": 0,
+    "projectNames": 0,
+    "absolutePaths": 0,
+    "quotes": 0,
+    "uuids": 0
+  },
+  "replacements": {
+    "homePaths": 15,
+    "homeDirs": 8,
+    "projectPaths": 37,
+    "projectNames": 1,
+    "absolutePaths": 2,
+    "quotes": 14,
+    "quoteLines": 18,
+    "secrets": 0,
+    "emails": 0,
+    "phones": 0,
+    "uuids": 0
+  },
+  "sanitizationNote": "Экранированные git-bash пути нормализуются до масок; домашний корень и его структура, а также корни проектов и абсолютные Windows-пути режутся целиком; reasoning/текст с приватными указаниями заменяется маркером [фрагмент удалён по приватности], в результатах/аргументах строки с такими указаниями вырезаются. Скан утечек идёт отдельными паттернами, не regex из sanitize()."
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "runId": "run_20261122_191018_35d8",
+    "status": "completed",
+    "modelAlias": "gemini",
+    "responseModel": "google/gemini-decision-1-20261111",
+    "parentRunId": null,
+    "items": 40,
+    "itemStatuses": {
+      "ok": 40
+    },
+    "answers": 40,
+    "answersWithoutProbabilities": 0,
+    "errorSummary": null
+  },
+  {
+    "runId": "run_20261122_191020_83af",
+    "status": "completed",
+    "modelAlias": "luna",
+    "responseModel": "openai/gpt-6-luna-decisions-20261006",
+    "parentRunId": "run_20261122_191018_35d8",
+    "items": 17,
+    "itemStatuses": {
+      "ok": 17
+    },
+    "answers": 85,
+    "answersWithoutProbabilities": 68,
+    "errorSummary": null
+  },
+  {
+    "runId": "run_20261122_191022_8fa5",
+    "status": "completed",
+    "modelAlias": "jev",
+    "responseModel": "jev-1.14.0",
+    "parentRunId": "run_20261122_191020_83af",
+    "items": 1,
+    "itemStatuses": {
+      "ok": 1
+    },
+    "answers": 3,
+    "answersWithoutProbabilities": 1,
+    "errorSummary": null
+  }
+]

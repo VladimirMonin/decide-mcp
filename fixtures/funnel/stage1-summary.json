@@ -1,0 +1,51 @@
+{
+  "runId": "run_20261122_191018_35d8",
+  "model": "gemini",
+  "stats": {
+    "items_total": 40,
+    "items_processed": 40,
+    "items_skipped": 0,
+    "items_blocked": 0,
+    "batches_total": 1,
+    "input_tokens": 16455,
+    "output_tokens": 0,
+    "cost_rub": 0.19285523,
+    "cost_usd": null,
+    "duration_ms": 1570
+  },
+  "summary": {
+    "problem_score": {
+      "type": "score",
+      "count": 40,
+      "min": 0.5321039710611064,
+      "avg": 1.5504427570580246,
+      "max": 2.7631583173310217,
+      "buckets": {
+        "0": 17,
+        "1": 6,
+        "2": 6,
+        "3": 11
+      }
+    }
+  },
+  "selectedTotal": 17,
+  "selectedIds": [
+    "step_041",
+    "step_042",
+    "step_043",
+    "step_045",
+    "step_046",
+    "step_048",
+    "step_049",
+    "step_050",
+    "step_051",
+    "step_054",
+    "step_055",
+    "step_056",
+    "step_057",
+    "step_062",
+    "step_072",
+    "step_074",
+    "step_080"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "items": 40,
+  "totalReasoningToks": 1733,
+  "maxReasoningToks": 141,
+  "avgReasoningToks": 43.325,
+  "toolError": 11,
+  "repeatReasoning": 1,
+  "repeatTool": 0,
+  "maxRepeatTool": 0,
+  "reversals": 5,
+  "stepsWithReversals": 4,
+  "invalidJson": 0,
+  "stepsWithTags": 39
+}
