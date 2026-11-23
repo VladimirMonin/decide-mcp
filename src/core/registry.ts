@@ -8,6 +8,8 @@ export interface ModelPassport {
   maxQuestionsPerRequest: number;
   /** Источник maxQuestionsPerRequest: живой HTTP 400 или документация. */
   maxQuestionsSource: "measured-2026-11-22" | "docs";
+  /** Фактический тариф Polza AI за 1M входных токенов, ₽. */
+  polzaInputPriceRubPerMillion: number;
   /**
    * Жёсткий потолок ступеней `score`: выше — ошибка рубрики.
    * `gemini` по контракту принимает 2..255, у `ms`, `jev` и `luna` потолок 10.
@@ -39,6 +41,7 @@ export const MODEL_REGISTRY: Record<ModelAlias, ModelPassport> = {
     maxCompletionTokens: 235_929,
     maxQuestionsPerRequest: 256,
     maxQuestionsSource: "measured-2026-11-22",
+    polzaInputPriceRubPerMillion: 11.72,
     maxScoreLevels: 255,
     recommendedScoreLevels: 10,
     supportsMedia: false,
@@ -56,6 +59,7 @@ export const MODEL_REGISTRY: Record<ModelAlias, ModelPassport> = {
     maxCompletionTokens: 29_491,
     maxQuestionsPerRequest: 150,
     maxQuestionsSource: "docs",
+    polzaInputPriceRubPerMillion: 4.92,
     maxScoreLevels: 10,
     recommendedScoreLevels: 10,
     supportsMedia: false,
@@ -73,6 +77,7 @@ export const MODEL_REGISTRY: Record<ModelAlias, ModelPassport> = {
     maxCompletionTokens: null,
     maxQuestionsPerRequest: 256,
     maxQuestionsSource: "docs",
+    polzaInputPriceRubPerMillion: 17.09,
     maxScoreLevels: 10,
     recommendedScoreLevels: 10,
     supportsMedia: false,
@@ -90,6 +95,7 @@ export const MODEL_REGISTRY: Record<ModelAlias, ModelPassport> = {
     maxCompletionTokens: 945_000,
     maxQuestionsPerRequest: 200,
     maxQuestionsSource: "measured-2026-11-22",
+    polzaInputPriceRubPerMillion: 11.72,
     maxScoreLevels: 10,
     recommendedScoreLevels: 10,
     supportsMedia: false,

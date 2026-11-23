@@ -76,3 +76,10 @@ test("лимиты вопросов gemini/luna соответствуют жи�
     "measured-2026-11-22",
   );
 });
+
+test("тарифы Polza за 1M входных токенов", () => {
+  assert.equal(MODEL_REGISTRY.gemini.polzaInputPriceRubPerMillion, 11.72);
+  assert.equal(MODEL_REGISTRY.ms.polzaInputPriceRubPerMillion, 4.92);
+  assert.equal(MODEL_REGISTRY.jev.polzaInputPriceRubPerMillion, 17.09);
+  assert.equal(MODEL_REGISTRY.luna.polzaInputPriceRubPerMillion, 11.72);
+});
